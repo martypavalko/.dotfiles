@@ -1,0 +1,5 @@
+*
+
+!.gitignore
+!.config/i3/config
+!.config/alacritty.yml
