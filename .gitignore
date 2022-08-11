@@ -3,3 +3,6 @@
 !.gitignore
 !.config/i3/config
 !.config/alacritty.yml
+!.vimrc
+!.zshrc
+!.oh-my-zsh/*
