@@ -46,3 +46,7 @@ set hlsearch
 
 " Set the commands to save in history default number is 20.
 set history=1000
+
+if filereadable(expand("~/.vimrc.plug"))
+    source ~/.vimrc.plug
+endif

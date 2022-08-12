@@ -4,5 +4,7 @@
 !.config/i3/config
 !.config/alacritty.yml
 !.vimrc
+!.vimrc.plug
 !.zshrc
 !.oh-my-zsh/*
+!.vim/autoload/plug.vim

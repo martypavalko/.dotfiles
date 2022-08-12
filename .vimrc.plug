@@ -1,0 +1,10 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'fatih/vim-go'
+Plug 'junegunn/fzf'
+Plug 'valloric/youcompleteme'
+Plug 'tpope/vim-commentary'
+
+call plug#end()
