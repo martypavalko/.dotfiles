@@ -318,8 +318,8 @@ assign [class="(?i)virtualbox"] $ws5
 for_window [class=Alacritty] focus
 for_window [class=(?i)firefox] focus
 for_window [class=(?i)code] focus
-for_window [class=Thunderbird] focus
-for_window [class=TelegramDesktop] focus
+for_window [class=(?i)slack] focus
+for_window [class=(?i)virtualbox] focus
 
 ##############
 # compositor #
