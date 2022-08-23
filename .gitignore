@@ -8,3 +8,4 @@
 !.zshrc
 !.oh-my-zsh/*
 !.vim/autoload/plug.vim
+!.config/i3/i3blocks.conf
