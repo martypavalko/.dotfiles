@@ -2,7 +2,7 @@
 
 !.gitignore
 !.config/i3/config
-!.config/alacritty.yml
+!.config/alacritty/alacritty.yml
 !.vimrc
 !.vimrc.plug
 !.zshrc
