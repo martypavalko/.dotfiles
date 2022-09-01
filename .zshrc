@@ -73,6 +73,7 @@ ZSH_THEME="agnoster"
 plugins=(git fzf)
 
 source $ZSH/oh-my-zsh.sh
+#export FZF_BASE=/home/marty/.oh-my-zsh/plugins/fzf
 
 # User configuration
 
@@ -103,3 +104,5 @@ alias vim='nvim'
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
 fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
