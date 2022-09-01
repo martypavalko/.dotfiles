@@ -5,6 +5,7 @@ return require('packer').startup(function(use)
     use 'fatih/vim-go'
     use 'vim-airline/vim-airline'
     use 'preservim/nerdtree'
-    use 'ycm-core/YouCompleteMe'
+    use 'neovim/nvim-lspconfig'
+    --use 'ycm-core/YouCompleteMe'
 
 end)
