@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo pacman -Syyu
-sudo pacman -S alacritty zsh i3-wm polybar rofi python3 yay git neovim
+sudo pacman -S alacritty zsh i3-wm polybar rofi python3 yay git neovim ranger tmux npm
 cd ~/
 git clone git@github.com:martypavalko/Dotfiles.git
 git config --global user.email "marty.pavalko@gmail.com"
