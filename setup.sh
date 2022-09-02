@@ -11,4 +11,7 @@ git config --global user.email "marty.pavalko@gmail.com"
 git config --global user.name "martypavalko"
 yay -Syu
 yay -S nvim-packer-git
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ZSH_FOLDER=/home/marty/.oh-my-zsh
+if [ ! -d "$ZSH_FOLDER"  ]; then
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
