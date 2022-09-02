@@ -1,11 +1,8 @@
 #!/bin/bash
 sudo pacman -Syyu
-sudo pacman -S alacritty zsh i3-wm polybar rofi python3 git neovim ranger tmux npm firefox
+sudo pacman -S alacritty zsh i3-gaps polybar rofi python3 neovim ranger tmux npm firefox arandr
 cd ~/
-git clone git@github.com:martypavalko/Dotfiles.git
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git config --global user.email "marty.pavalko@gmail.com"
 git config --global user.name "martypavalko"
-git clone git@github.com:martypavalko/Dotfiles.git
-ln -s /home/marty/.config/i3/config /home/marty/Dotfiles/.config/i3/config
-ln -s /home/marty/.config/alacritty/alacritty.yml /home/marty/Dotfiles/.config/alacritty/alacritty.yml
-ln -s /home/marty/.zshrc /home/marty/Dotfiles/.zshrc
+git clone --depth 1 "https://github.com/wbthomason/packer.nvim" "~/.local/share/nvim/site/pack/packer/start/packer.nvim"
