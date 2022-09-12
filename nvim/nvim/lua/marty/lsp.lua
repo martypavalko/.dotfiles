@@ -30,15 +30,7 @@ end
 require("nvim-lsp-installer").setup{}
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.jdtls.setup{}
-require("lspconfig").gopls.setup(config({
-	cmd = { "gopls", "serve" },
-	settings = {
-		gopls = {
-			analyses = {
-				unusedparams = true,
-			},
-			staticcheck = true,
-		},
-	},
-}))
+require'lspconfig'.gopls.setup{
+    on_attach = on_attach,
+}
 
