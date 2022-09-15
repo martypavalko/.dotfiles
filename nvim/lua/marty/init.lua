@@ -1,6 +1,7 @@
 require('marty.keymaps')
 require('marty.plugins')
 require('marty.lsp')
+require('marty.treesitter')
 
 vim.opt.guicursor = ""
 vim.opt.nu = true
