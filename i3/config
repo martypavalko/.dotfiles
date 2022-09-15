@@ -274,7 +274,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym $mod+i exec /usr/local/bin/switch-audio-port
 
 ## App shortcuts
-bindsym $mod+w exec /usr/bin/firefox
+bindsym $mod+w exec /usr/bin/firefox -P
 bindsym $mod+n exec /usr/bin/thunar
 bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot saved to ~/$(date +"%Y-%m-%d-%T")-screenshot.png"
 
@@ -312,14 +312,14 @@ assign [class="Alacritty"] $ws1
 assign [class="(?i)firefox"] $ws2
 assign [class="(?i)code"] $ws3
 assign [class="(?i)slack"] $ws4
-assign [class="(?i)virtualbox"] $ws5
+assign [class="(?i)thunderbird"] $ws5
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=Alacritty] focus
 for_window [class=(?i)firefox] focus
 for_window [class=(?i)code] focus
 for_window [class=(?i)slack] focus
-for_window [class=(?i)virtualbox] focus
+for_window [class=(?i)thunderbird] focus
 
 ##############
 # compositor #
@@ -571,7 +571,7 @@ bindsym $mod+t exec rofi -show window \
 #exec --no-startup-id greenclip daemon>/dev/null
 # bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard \
 #		-config ~/.config/rofi/rofidmenu.rasi
-exec_always --no-startup-id xrandr --output DP2 --left-of eDP1 --primary
+#exec_always --no-startup-id xrandr --output DP2 --left-of eDP1 --primary
 #exec_always --no-startup-id /home/marty/.config/i3/scripts/startup_screen_displays
 bindsym $mod+p move workspace to output right
 bindsym $mod+o move workspace to output left
