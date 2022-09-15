@@ -6,6 +6,12 @@ return require('packer').startup(function(use)
     use 'vim-airline/vim-airline'
     use 'preservim/nerdtree'
     use 'nvim-treesitter/nvim-treesitter'
+    use 'lukas-reineke/indent-blankline.nvim'
+    use 'preservim/nerdcommenter'
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.0',
+        requires = { {'nvim-lua/plenary.nvim'}, {'BurntSushi/ripgrep'} }
+    }
     -- lsp plugins
     use 'neovim/nvim-lspconfig'
     use 'williamboman/nvim-lsp-installer' 
