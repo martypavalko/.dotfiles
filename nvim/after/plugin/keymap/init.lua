@@ -9,7 +9,7 @@ local nmap = Remap.nmap
 nnoremap("<leader>b", ":NERDTreeToggle<CR>")
 
 -- Telescope
-nnoremap("<leader>ff", ":Telescope find_files<CR>")
-nnoremap("<leader>fg", ":Telescope live_grep<CR>")
+nnoremap("<leader>ff", ":Telescope find_files hidden=true<CR>")
+nnoremap("<leader>fg", ":Telescope live_grep hidden=true<CR>")
 nnoremap("<leader>fb", ":Telescope buffers<CR>")
 nnoremap("<leader>fh", ":Telescope help_tags<CR>")

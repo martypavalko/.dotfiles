@@ -24,6 +24,8 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-nvim-lua'
     -- go plugins
     use 'ray-x/go.nvim'
+    -- java plugins
+    use 'mfussenegger/nvim-jdtls'
     -- colors
     use 'gruvbox-community/gruvbox'
     use 'folke/tokyonight.nvim'
