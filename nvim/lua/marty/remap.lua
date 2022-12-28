@@ -1,5 +1,8 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pt", vim.cmd.Tex)
+vim.keymap.set("n", "<leader>pq", vim.cmd.tabprevious)
+vim.keymap.set("n", "<leader>pw", vim.cmd.tabnext)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
