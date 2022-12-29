@@ -3,10 +3,10 @@ local lsp = require("lsp-zero")
 lsp.preset("recommended")
 
 lsp.ensure_installed({
-	--'tsserver',
-	--'eslint',
-	--'sumneko_lua',
-	--'rust_analyzer',
+	'tsserver',
+	'eslint',
+	'sumneko_lua',
+	'rust_analyzer',
 })
 
 -- Fix Undefined global 'vim'
@@ -54,7 +54,7 @@ lsp.on_attach(function(client, bufnr)
 
 	if client.name == "eslint" then
 		vim.cmd.LspStop('eslint')
-		return
+	    return
 	end
 
 	vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
