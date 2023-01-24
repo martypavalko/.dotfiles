@@ -42,14 +42,16 @@ require('packer').startup(function(use)
     'nvim-treesitter/nvim-treesitter-textobjects',
     after = 'nvim-treesitter',
   }
-
+  use 'nvim-tree/nvim-web-devicons'
   -- Git related plugins
   use 'tpope/vim-fugitive'
   use 'tpope/vim-rhubarb'
   use 'lewis6991/gitsigns.nvim'
-
-  use 'navarasu/onedark.nvim' -- Theme inspired by Atom
-  use 'nvim-lualine/lualine.nvim' -- Fancier statusline
+  use {
+    'nvim-lualine/lualine.nvim',
+    -- requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
   use 'lukas-reineke/indent-blankline.nvim' -- Add indentation guides even on blank lines
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
@@ -71,11 +73,31 @@ require('packer').startup(function(use)
   use('w0rp/ale')
   use('burner/vim-svelte')
   use('theprimeagen/harpoon')
+  use('onsails/lspkind-nvim')
+  use('windwp/nvim-ts-autotag')
+  use {
+	'windwp/nvim-autopairs',
+    config = function() require("nvim-autopairs").setup {} end
+  }
+  -- use({
+  --   'embark-theme/vim',
+  --   as = 'embark',
+  --   config = function()
+  --     vim.cmd('colorscheme embark')
+  --   end
+  -- })
+  -- use({
+  --   'sainnhe/gruvbox-material',
+  --   as = 'gruvbox-material',
+  --   config = function()
+  --     vim.cmd('colorscheme gruvbox-material')
+  --   end
+  -- })
   use({
-    'folke/tokyonight.nvim',
-    as = 'tokyonight',
+    'morhetz/gruvbox',
+    as = 'gruvbox',
     config = function()
-      vim.cmd('colorscheme tokyonight-storm')
+      vim.cmd('colorscheme gruvbox')
     end
   })
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua

@@ -54,7 +54,10 @@ local servers = {
   pyright = {},
   rust_analyzer = {},
   tsserver = {},
-
+  terraformls = {
+    pattern = { "*.tf", "*.tfvars" },
+    callback = vim.lsp.buf.format(),
+  },
   sumneko_lua = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -89,6 +92,13 @@ mason_lspconfig.setup_handlers {
     }
   end,
 }
+
+-- terraformls setup
+-- require 'lspconfig'.terraformls.setup {}
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   pattern = { "*.tf", "*.tfvars" },
+--   callback = vim.lsp.buf.format(),
+-- })
 
 -- Turn on lsp status information
 require('fidget').setup()
