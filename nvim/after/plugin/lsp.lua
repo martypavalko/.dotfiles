@@ -58,6 +58,7 @@ local servers = {
     pattern = { "*.tf", "*.tfvars" },
     callback = vim.lsp.buf.format(),
   },
+  tflint = {},
   sumneko_lua = {
     Lua = {
       workspace = { checkThirdParty = false },

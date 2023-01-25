@@ -79,6 +79,21 @@ require('packer').startup(function(use)
 	'windwp/nvim-autopairs',
     config = function() require("nvim-autopairs").setup {} end
   }
+  use {
+    "nathom/filetype.nvim",
+    config = function()
+      require("filetype").setup {
+	overrides = {
+	  extensions = {
+	    tf = "terraform",
+	    tfvars = "terraform",
+	    tfstate = "json",
+	  },
+	},
+      }
+    end,
+  }
+
   -- use({
   --   'embark-theme/vim',
   --   as = 'embark',

@@ -22,3 +22,8 @@ require('gitsigns').setup {
   },
 }
 
+vim.filetype.add{
+  extension = {
+    tf = 'terraform',
+  }
+}
