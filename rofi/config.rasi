@@ -10,10 +10,10 @@ configuration {
 
 * {
   bg: #282828;
-  bg-alt: #32302f;
+  bg-alt: #282828;
 
-  fg: #ebdbb2;
-  fg-alt: #fbf1c7;
+  fg: #83a598;
+  fg-alt: #ebdbb2;
 
   background-color: @bg;
   
