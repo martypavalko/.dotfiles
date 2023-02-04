@@ -318,6 +318,7 @@ assign [class="kitty"] $ws2
 assign [class="(?i)obsidian"] $ws3
 assign [class="(?i)slack"] $ws4
 assign [class="(?i)discord"] $ws4
+assign [class="(?i)arandr"] $ws9
 
 # automatic set focus new window if it opens on another workspace then the current:
 for_window [class=(?i)firefox] focus
@@ -325,6 +326,7 @@ for_window [class=kitty] focus
 for_window [class=(?i)obsidian] focus
 for_window [class=(?i)slack] focus
 for_window [class=(?i)discord] focus
+for_window [class=(?i)arandr] focus
 
 ##############
 # compositor #
@@ -433,7 +435,7 @@ for_window [class="Blueberry.py" instance="blueberry.py"] floating enable
 for_window [class="Bluetooth-sendto" instance="bluetooth-sendto"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [window_role="About"] floating enable
-for_window [class="Arandr"] floating enable
+# for_window [class="Arandr"] floating enable
 for_window [class="spotify"] floating enable
 
 # set border of floating window
@@ -541,16 +543,15 @@ client.urgent		    	$urgentred	$urgentred	$white		$yellowbrown	$yellowbrown
 
 ## rofi bindings fancy application menu ($mod+d /F9 optional disabled)
 
-bindsym $mod+d exec rofi -modi drun -show drun \
-		-config ~/.config/rofi/rofidmenu.rasi
+bindsym $mod+d exec "rofi -show combi -modes combi -combi-modes window,drun,run"
 
-# bindsym F9 exec rofi -modi drun -show drun \
-#		-config ~/.config/rofi/rofidmenu.rasi
+# bindsym $mod+d exec rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
+
+# bindsym F9 exec rofi -modi drun -show drun -config ~/.config/rofi/rofidmenu.rasi
 
 ## rofi bindings for window menu ($mod+t /F10 optional disabled)
 
-bindsym $mod+t exec rofi -show window \
-		-config ~/.config/rofi/rofidmenu.rasi
+# bindsym $mod+t exec rofi -show window -config ~/.config/rofi/rofidmenu.rasi
 
 # bindsym F10 exec rofi -show window \
 #		-config ~/.config/rofi/rofidmenu.rasi
