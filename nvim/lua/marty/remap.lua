@@ -11,8 +11,17 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+local function toggle_replace()
+    local view = require"nvim-tree.view"
+    local api = require"nvim-tree.api"
+    if view.is_visible() then
+	api.tree.close()
+    else
+	require"nvim-tree".open_replacing_current_buffer()
+    end
+end
 vim.keymap.set("n", "<leader>pv", function()
-    require("nvim-tree").open_replacing_current_buffer()
+    toggle_replace()
 end)
 vim.keymap.set("n", "<leader>tp", vim.cmd.tabprevious)
 vim.keymap.set("n", "<leader>tn", vim.cmd.tabnext)
