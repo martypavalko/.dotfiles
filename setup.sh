@@ -7,7 +7,6 @@ sudo chown -R marty:marty ./yay-git
 cd yay-git
 makepkg -si
 cd ~
-git config --global user.email "marty.pavalko@gmail.com"
 git config --global user.name "martypavalko"
 yay -Syu
 yay -S nvim-packer-git
