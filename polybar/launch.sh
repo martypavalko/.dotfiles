@@ -1,7 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-killall -q polybar
+# Terminate already running bar instances
+killall polybar
 
-polybar example 2>&1 | tee -a /tmp/polybar.log & disown
+# Wait until the processes have been shut down
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-echo "Polybar launched..."
+# Launch polybar
+polybar main -c $(dirname $0)/config.ini &
+
+#if [[ $(xrandr -q | grep 'HDMI1 connected') ]]; then
+#	polybar external -c $(dirname $0)/config.ini &
+#fi

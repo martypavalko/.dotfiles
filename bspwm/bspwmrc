@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# keybindings
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+#picom
+# Currently causes screen flickering
+#pkill picom
+#picom -b &
+
+# panel
+$HOME/.config/polybar/launch.sh &
+
+# monitors
+#xrandr --output DP-0 --primary --below DP-4
+
+# bsp config
+bspc monitor DP-0 -d 1 2 3 4 5
+bspc monitor DP-4 -d 6 7 8 9 10
+bspc monitor DP-0 -s DP-4
+
+bspc config border_width	2
+bspc config window_gap		12
+
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+
+bspc config pointer_modifier mod1
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+
+bspc config pointer_follows_focus true
+bspc config pointer_follows_monitor true
+bspc config focus_follows_pointer true
+
+# wallpaper
+nitrogen --restore &
+
+# cursor move rate
+xset r rate 200 40
