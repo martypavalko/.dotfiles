@@ -4,19 +4,18 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 #picom
 # Currently causes screen flickering
-#pkill picom
-#picom -b &
-
-# panel
-$HOME/.config/polybar/launch.sh &
+pkill picom
+picom -CGb &
 
 # monitors
 #xrandr --output DP-0 --primary --below DP-4
 
 # bsp config
-bspc monitor DP-0 -d 1 2 3 4 5
-bspc monitor DP-4 -d 6 7 8 9 10
-bspc monitor DP-0 -s DP-4
+if [[ $(xrandr -q | grep "DP-1-1 connected") ]];
+then
+  xrandr --output DP-1-1  --primary --mode 1920x1080 --pos 0x0  --rotate normal
+  bspc monitor DP-1-1 -d 0 1 2 3 4 5 6 7 8 9
+fi
 
 bspc config border_width	2
 bspc config window_gap		12
@@ -34,8 +33,21 @@ bspc config pointer_follows_focus true
 bspc config pointer_follows_monitor true
 bspc config focus_follows_pointer true
 
-# wallpaper
-nitrogen --restore &
+bspc config merge_overlapping_monitors true
 
+bspc config normal_border_color "#44475a"
+bspc config active_border_color "#6272a4"
+bspc config focused_border_color "#bd93f9"
+bspc config presel_feedback_color "#6272a4"
+
+if [[ $(bspc query -D | wc -l) -gt 9 ]];
+then
+  bspc desktop Desktop --remove &
+  bspc desktop 0 --remove &
+fi
+# wallpaper
+feh --bg-scale $HOME/Downloads/dracula.png
 # cursor move rate
 xset r rate 200 40
+# panel
+$HOME/.config/polybar/launch.sh &
