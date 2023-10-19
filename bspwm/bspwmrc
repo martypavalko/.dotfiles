@@ -39,17 +39,17 @@ bspc config focus_follows_pointer true
 
 bspc config merge_overlapping_monitors true
 
-bspc config normal_border_color "#44475a"
-bspc config active_border_color "#6272a4"
-bspc config focused_border_color "#bd93f9"
-bspc config presel_feedback_color "#6272a4"
+bspc config normal_border_color "#394b70"
+bspc config active_border_color "#3d59a1"
+bspc config focused_border_color "#565f89"
+bspc config presel_feedback_color "#bb9af7"
 
 if [[ $(bspc query -D | wc -l) -gt 9 ]];
 then
   bspc desktop Desktop --remove &
 fi
 # wallpaper
-feh --bg-scale $HOME/Downloads/dracula.png
+feh --bg-scale $HOME/Pictures/wallhaven-kxj3l1.jpg
 # cursor move rate
 xset r rate 200 40
 # panel

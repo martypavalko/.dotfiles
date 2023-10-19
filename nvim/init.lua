@@ -61,3 +61,95 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+require 'colorizer'.setup()
+
+require('lualine').setup{
+  options = {
+    theme = 'auto',
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff'},
+    lualine_c = {'buffers'},
+    lualine_x = {'tabs'},
+    lualine_y = {'progress'},
+    lualine_z = {
+      { 'diagnostics',
+        sources = {'nvim_diagnostic', 'nvim_lsp'},
+        sections = {'error', 'warn', 'info', 'hint'},
+        diagnostics_color = {
+          -- Same values as the general color option can be used here.
+          error = 'DiagnosticError', -- Changes diagnostics' error color.
+          warn  = 'DiagnosticWarn',  -- Changes diagnostics' warn color.
+          info  = 'DiagnosticInfo',  -- Changes diagnostics' info color.
+          hint  = 'DiagnosticHint',  -- Changes diagnostics' hint color.
+        },
+        symbols = {error = 'E', warn = 'W', info = 'I', hint = 'H'},
+        colored = true,           -- Displays diagnostics status in color if set to true.
+        update_in_insert = false, -- Update diagnostics in insert mode.
+        always_visible = false,   -- Show diagnostics even if there are none.
+      }
+    }
+  }
+}
+
+-- plugins (should be in after dir?)
+vim.cmd.packadd('packer.nvim')
+
+return require('packer').startup(function(use)
+  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
+
+  use {
+	  'nvim-telescope/telescope.nvim', tag = '0.1.0',
+	  -- or                            , branch = '0.1.x',
+	  requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use({
+      'folke/tokyonight.nvim',
+      config = function()
+          vim.cmd('colorscheme tokyonight-storm')
+      end
+  })
+
+  use {
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
+
+  use({"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"})
+  use("nvim-treesitter/playground")
+  use("theprimeagen/harpoon")
+  use("theprimeagen/refactoring.nvim")
+  use("mbbill/undotree")
+  use("tpope/vim-fugitive")
+  use("nvim-treesitter/nvim-treesitter-context")
+  use("norcalli/nvim-colorizer.lua");
+
+  use {
+	  'VonHeikemen/lsp-zero.nvim',
+	  branch = 'v1.x',
+	  requires = {
+		  -- LSP Support
+		  {'neovim/nvim-lspconfig'},
+		  {'williamboman/mason.nvim'},
+		  {'williamboman/mason-lspconfig.nvim'},
+
+		  -- Autocompletion
+		  {'hrsh7th/nvim-cmp'},
+		  {'hrsh7th/cmp-buffer'},
+		  {'hrsh7th/cmp-path'},
+		  {'saadparwaiz1/cmp_luasnip'},
+		  {'hrsh7th/cmp-nvim-lsp'},
+		  {'hrsh7th/cmp-nvim-lua'},
+
+		  -- Snippets
+		  {'L3MON4D3/LuaSnip'},
+		  {'rafamadriz/friendly-snippets'},
+	  }
+  }
+
+  use("folke/zen-mode.nvim")
+end)
