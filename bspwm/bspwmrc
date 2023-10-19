@@ -5,16 +5,20 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 #picom
 # Currently causes screen flickering
 pkill picom
-picom -CGb &
+picom -b &
 
 # monitors
 #xrandr --output DP-0 --primary --below DP-4
 
 # bsp config
-if [[ $(xrandr -q | grep "DP-1-1 connected") ]];
+if [[ $(xrandr -q | grep " connected" | wc -l) -gt 1 ]];
 then
-  xrandr --output DP-1-1  --primary --mode 1920x1080 --pos 0x0  --rotate normal
-  bspc monitor DP-1-1 -d 0 1 2 3 4 5 6 7 8 9
+  MONITOR=$(xrandr -q | grep " connected" | grep -v "eDP-1" | awk '{print $1}')
+  xrandr --output $MONITOR  --primary --mode 1920x1080 --pos 0x0  --rotate normal
+  bspc monitor $MONITOR -d 0 1 2 3 4 5 6 7 8 9
+else
+  xrandr --output eDP-1  --primary --mode 1920x1080 --pos 0x0  --rotate normal
+  bspc monitor eDP-1 -d 0 1 2 3 4 5 6 7 8 9
 fi
 
 bspc config border_width	2
@@ -43,7 +47,6 @@ bspc config presel_feedback_color "#6272a4"
 if [[ $(bspc query -D | wc -l) -gt 9 ]];
 then
   bspc desktop Desktop --remove &
-  bspc desktop 0 --remove &
 fi
 # wallpaper
 feh --bg-scale $HOME/Downloads/dracula.png
