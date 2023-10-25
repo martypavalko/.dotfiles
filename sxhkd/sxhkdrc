@@ -120,6 +120,10 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+#Bluetooth autoconnect
+alt + ctrl + b 
+    blueauto JBL
+
 # Function keys
 XF86AudioLowerVolume
 
