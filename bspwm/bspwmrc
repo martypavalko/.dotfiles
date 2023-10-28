@@ -47,6 +47,7 @@ bspc config presel_feedback_color "#bb9af7"
 bspc rule -a kitty desktop=^2
 bspc rule -a firefox desktop=^1
 bspc rule -a discord desktop=^4
+bspc rule -a Slack desktop=^4
 bspc rule -a obsidian desktop=^3
 bspc rule -a Zathura desktop=^3
 
