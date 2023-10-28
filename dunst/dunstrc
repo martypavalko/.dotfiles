@@ -36,11 +36,12 @@
     hide_duplicate_count = false
     show_indicators = yes
     enable_recursive_icon_lookup = true
-    icon_theme = Adwaita
+    icon_theme = Papirus-Dark
     icon_position = left
     min_icon_size = 32
     max_icon_size = 128
-    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_path = /usr/share/icons/Papirus-Dark/16x16/status/:/usr/share/icons/Papirus-Dark/16x16/devices/:/usr/share/icons/Papirus-Dark/16x16/apps/
+
     corner_radius = 20
 
 # TokyoNight colors for dunst
