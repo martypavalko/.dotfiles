@@ -29,6 +29,10 @@ require("lazy").setup({
             "nvim-tree/nvim-web-devicons"
         }
     },
+    {
+    'nvim-telescope/telescope.nvim', branch = '0.1.x',
+      dependencies = { 'nvim-lua/plenary.nvim' }
+    },
     {'nvim-treesitter/nvim-treesitter'},
     {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
     {'williamboman/mason.nvim'},
@@ -38,6 +42,8 @@ require("lazy").setup({
     {'hrsh7th/nvim-cmp'},
     {'L3MON4D3/LuaSnip'},
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    {'tpope/vim-surround'},
+    {'tpope/vim-fugitive'},
 })
 
 -- lualine
@@ -107,7 +113,7 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
 })
-
+--treesitter
 require('nvim-treesitter.configs').setup {
     ensure_installed = { "go" },
     auto_install = false,
