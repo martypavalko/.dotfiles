@@ -44,6 +44,7 @@ require("lazy").setup({
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
     {'tpope/vim-surround'},
     {'tpope/vim-fugitive'},
+    {'tpope/vim-commentary'},
 })
 
 -- lualine
