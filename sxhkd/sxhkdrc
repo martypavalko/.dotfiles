@@ -126,10 +126,16 @@ alt + ctrl + b
 
 # Function keys
 XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -1000
 
 XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +1000
 
-XF86AudioAudioMute
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+XF86AudioMicMute
+    pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 XF86MonBrightnessDown
     xbacklight -dec 5
