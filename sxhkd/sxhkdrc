@@ -142,3 +142,10 @@ XF86MonBrightnessDown
 
 XF86MonBrightnessUp
     xbacklight -inc 5
+
+# picom set opacity when focusing
+super + alt + p
+    /usr/bin/focus 1
+
+super + alt + o
+    /usr/bin/focus
