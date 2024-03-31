@@ -52,6 +52,7 @@ bspc rule -a obsidian desktop=^3
 bspc rule -a Zathura desktop=^3
 bspc rule -a steam desktop=^5
 bspc rule -a streaming_client desktop=^6
+bspc rule -a Spotify desktop=^9
 
 if [[ $(bspc query -D | wc -l) -gt 9 ]];
 then

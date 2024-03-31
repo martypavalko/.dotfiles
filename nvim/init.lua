@@ -33,6 +33,16 @@ require("lazy").setup({
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
       dependencies = { 'nvim-lua/plenary.nvim' }
     },
+    {
+    'nvimdev/dashboard-nvim',
+       event = 'VimEnter',
+       config = function()
+       require('dashboard').setup {
+      -- config
+       }
+       end,
+       dependencies = { {'nvim-tree/nvim-web-devicons'}}
+    },
     {'nvim-treesitter/nvim-treesitter'},
     {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
     {'williamboman/mason.nvim'},
@@ -121,4 +131,9 @@ require('nvim-treesitter.configs').setup {
     highlight = {
         enable = true
     }
+}
+
+--indent-blankline
+require('ibl').overwrite {
+    exclude = { filetypes = {'dashboard'} }
 }
