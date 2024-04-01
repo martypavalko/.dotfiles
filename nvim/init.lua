@@ -43,6 +43,7 @@ require("lazy").setup({
        end,
        dependencies = { {'nvim-tree/nvim-web-devicons'}}
     },
+    {'nvim-tree/nvim-tree.lua'},
     {'nvim-treesitter/nvim-treesitter'},
     {'VonHeikemen/lsp-zero.nvim', branch = 'v3.x'},
     {'williamboman/mason.nvim'},
@@ -52,9 +53,19 @@ require("lazy").setup({
     {'hrsh7th/nvim-cmp'},
     {'L3MON4D3/LuaSnip'},
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-    {'tpope/vim-surround'},
+    {
+    "kylechui/nvim-surround",
+      version = "*", -- Use for stability; omit to use `main` branch for the latest features
+      event = "VeryLazy",
+      config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+      end
+    },
     {'tpope/vim-fugitive'},
     {'tpope/vim-commentary'},
+    {'m4xshen/autoclose.nvim'},
 })
 
 -- lualine
@@ -137,3 +148,20 @@ require('nvim-treesitter.configs').setup {
 require('ibl').overwrite {
     exclude = { filetypes = {'dashboard'} }
 }
+
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
+-- nvim-tree
+require("nvim-tree").setup()
+
+--autoclose
+require("autoclose").setup({
+   keys = {
+      ["$"] = { escape = true, close = true, pair = "$$", disabled_filetypes = {} },
+   },
+})
