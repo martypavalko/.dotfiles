@@ -66,6 +66,7 @@ require("lazy").setup({
     {'tpope/vim-fugitive'},
     {'tpope/vim-commentary'},
     {'m4xshen/autoclose.nvim'},
+    {'rose-pine/neovim', name = 'rose-pine'}
 })
 
 -- lualine
@@ -164,4 +165,10 @@ require("autoclose").setup({
    keys = {
       ["$"] = { escape = true, close = true, pair = "$$", disabled_filetypes = {} },
    },
+})
+
+-- rose-pine
+require("rose-pine").setup({
+    variant = 'auto',
+    dark_variant = 'main',
 })
