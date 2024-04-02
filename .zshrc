@@ -110,9 +110,9 @@ fi
 alias vim='nvim'
 alias nv='nvim'
 alias airpods='bluetoothctl connect F0:5C:D5:09:37:97'
-if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-  exec tmux -f ~/.tmux.conf
-fi
+# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+#   exec tmux -f ~/.tmux.conf
+# fi
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 #zprof
