@@ -11,13 +11,21 @@ picom -b &
 #xrandr --output DP-0 --primary --below DP-4
 
 # bsp config
-if [[ $(xrandr -q | grep " connected" | wc -l) -gt 1 ]];
+if [[ $(xrandr -q | grep " connected" | wc -l) -eq 2 ]];
 then
   MONITOR=$(xrandr -q | grep " connected" | grep -v "eDP-1" | awk '{print $1}')
-  xrandr --output $MONITOR --auto --primary --mode 1920x1080 --pos 0x0  --rotate normal
+  xrandr --output $MONITOR --auto --primary --mode 1920x1080 --pos 0x0 --rotate normal
   bspc monitor $MONITOR -d 0 1 2 3 4 5 6 7 8 9
+elif [[ $(xrandr -q | grep " connected" | wc -l) -eq 3 ]];
+then
+    MONITOR1=$(xrandr -q | grep " connected" | grep -v "eDP-1" | awk '{print $1}' | head -n 1)
+    xrandr --output $MONITOR1 --primary --mode 2560x1440 --pos 0x0 --rotate normal
+    bspc monitor $MONITOR1 -d 1 2 3 4
+    MONITOR2=$(xrandr -q | grep " connected" | grep -v "eDP-1" | awk '{print $1}' | tail -n 1)
+    xrandr --output $MONITOR2 --mode 2560x1440 --pos 0x0 --rotate normal --above $MONITOR1
+    bspc monitor $MONITOR2 -d 5 6 7 8 9
 else
-  xrandr --output eDP-1  --primary --mode 1920x1080 --pos 0x0  --rotate normal
+  xrandr --output eDP-1  --primary --mode 1920x1080 --pos 0x0 --rotate normal
   bspc monitor eDP-1 -d 0 1 2 3 4 5 6 7 8 9
 fi
 
