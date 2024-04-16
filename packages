@@ -28,3 +28,10 @@ spice-protocol
 win-virtio
 win-spice
 gnome.adwaita-icon-theme
+
+
+-- new 2024
+lazygit
+nvim
+fd-find
+ripgrep (rg)
