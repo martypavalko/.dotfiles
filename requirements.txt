@@ -1,0 +1,33 @@
+waybar
+gtk3
+gtk2
+dunst
+libnotify
+swww
+rofi-wayland
+networkmanagerapplet
+wl-clipboard
+grim
+slurp
+pavucontrol
+# shell
+thefuck
+zsh-powerlevel10k
+# utils
+unzip
+lf
+# xclip
+# tmux
+tmux
+neovim
+wget
+git
+curl
+kitty
+# dev
+gcc
+go
+fd
+ripgrep
+python3
+lazygit
