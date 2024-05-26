@@ -3,8 +3,7 @@ pacman -S sudo vim man-db man-pages texinfo networkmanager zsh
 useradd marty && usermod -aG wheel marty
 pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 yay -S hyprland
-pacman -S
-fakeroot debugedit make gcc cmake dunst pipewire polkit-kde-agent qt5-wayland qt6-wayland sddm xdg-desktop-portal-hyprland layer-shell-qt5 layer-shell-qt wayland xwayland alacritty wofi dolphin firefox wireplumber pipewire waybar hyprpaper ninja wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf libglvnd wayland openssh fastfetch ttf-jetbrains-mono-nerd
+pacman -S fakeroot debugedit make gcc cmake dunst pipewire polkit-kde-agent qt5-wayland qt6-wayland sddm xdg-desktop-portal-hyprland layer-shell-qt5 layer-shell-qt wayland xorg-xwayland alacritty wofi dolphin firefox wireplumber pipewire waybar hyprpaper ninja wayland-protocols libjpeg-turbo libwebp pango cairo pkgconf libglvnd wayland openssh fastfetch xdg-desktop-portal gtk4 gtk3
 
 tee -a /etc/sddm.conf.d/10-wayland.conf <<EOF
 [General]
