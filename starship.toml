@@ -2,8 +2,8 @@
 
 add_newline = false
 command_timeout = 1000
-#format = """$os$username$hostname$kubernetes$directory$git_branch$git_status"""
-format = """$os$kubernetes$directory$git_branch$git_status"""
+format = """$os$username$hostname$kubernetes$directory$git_branch$git_status"""
+#format = """$os$kubernetes$directory$git_branch$git_status"""
 
 # Drop ugly default prompt characters
 [character]
@@ -30,13 +30,14 @@ style_user = 'white bold'
 style_root = 'black bold'
 format = '[$user]($style) '
 disabled = false
-show_always = true
+show_always = false
 
 # Shows the hostname
 [hostname]
-ssh_only = false
+ssh_only = true
 format = 'on [$hostname](bold yellow) '
 disabled = false
+detect_env_vars = ['SSH_CONNECTION']
 
 # Shows current directory
 [directory]
