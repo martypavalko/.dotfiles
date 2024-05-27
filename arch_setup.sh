@@ -28,4 +28,4 @@ Host github.com
 EOF
 
 pacman -S starship fzf
-
+yay -S brightnessctl
