@@ -27,5 +27,5 @@ Host github.com
     IdentityFile /home/marty/.ssh/github
 EOF
 
-pacman -S starship fzf
+pacman -S starship fzf papirus-icon-theme
 yay -S brightnessctl
