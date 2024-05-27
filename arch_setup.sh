@@ -27,5 +27,6 @@ Host github.com
     IdentityFile /home/marty/.ssh/github
 EOF
 
-pacman -S starship fzf papirus-icon-theme
+pacman -S starship fzf papirus-icon-theme timeshift btrfs-progs grub-btrfs xorg-xhost noto-fonts-emoji
+systemctl enable cronie
 yay -S brightnessctl
