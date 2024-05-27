@@ -6,12 +6,21 @@
 	"modules-right": ["custom/padd","custom/l_end","tray","custom/r_end","custom/l_end","backlight","network","bluetooth","pulseaudio","pulseaudio#microphone","custom/r_end","custom/l_end","battery","custom/r_end","custom/padd"],
     "hyprland/workspaces": {
         "active-only": "true",
-        "format": "{icon}: {windows}",
+        "format": "{icon}",
         "window-rewrite-default": "",
         "window-rewrite": {
             "class<firefox>": "󰈹",
             "class<alacritty>": "",
             "class<discord>": "",
+        },
+    },
+    "hyprland/window": {
+        "format": "{}",   
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "󰈹 $1",
+            "(.*)Discord": " $1",
+            "(.*)Alacritty": " $1",
+            "(.*)tmux(.*)":  " dev",
         },
     },
     "idle_inhibitor": {
