@@ -34,7 +34,6 @@ alias k='kubectl'
 alias h='helm'
 alias kn='kubectl config set-context --current --namespace'
 
-alias discord='discord --enable-features=WaylandWindowDecorations --ozone-platform-hint=auto'
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux -f ~/.tmux.conf
 # fi
