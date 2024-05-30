@@ -17,7 +17,10 @@ export LC_ALL=en_US.UTF-8
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(git)
+plugins=(
+    git
+    kubectl
+)
 
 source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
