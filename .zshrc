@@ -14,14 +14,19 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
     git
     kubectl
+<<<<<<< Updated upstream
     helm
     golang
+=======
+>>>>>>> Stashed changes
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -57,7 +62,8 @@ bindkey ^S history-incremental-search-forward
 # eval "$(starship init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# echo '[[ $commands[kubectl] ]] && source <(kubectl completion zsh)'
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
