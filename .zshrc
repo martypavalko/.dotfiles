@@ -22,11 +22,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
     git
     kubectl
-<<<<<<< Updated upstream
     helm
     golang
-=======
->>>>>>> Stashed changes
 )
 
 source $ZSH/oh-my-zsh.sh
