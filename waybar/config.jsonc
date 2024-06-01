@@ -4,7 +4,7 @@
     // "modules-left": ["custom/padd","custom/l_end","hyprland/workspaces","custom/r_end","custom/l_end","hyprland/window","custom/r_end","custom/padd"],
     "modules-left": ["custom/padd","custom/l_end","hyprland/workspaces","custom/r_end","custom/padd"],
     "modules-center": ["custom/padd","custom/l_end","idle_inhibitor","clock","custom/r_end","custom/padd"],
-	"modules-right": ["custom/padd","custom/l_end","tray","custom/r_end","custom/l_end","backlight","network","bluetooth","pulseaudio","pulseaudio#microphone","custom/r_end","custom/l_end","battery","custom/r_end","custom/padd"],
+	"modules-right": ["custom/padd","custom/l_end","tray","custom/r_end","custom/l_end", "custom/updates","backlight","network","bluetooth","pulseaudio","pulseaudio#microphone","custom/r_end","custom/l_end","battery","custom/r_end","custom/padd"],
     "hyprland/workspaces": {
         "active-only": "true",
         "format": "{icon}",
@@ -53,6 +53,12 @@
             "on-scroll-up": "shift_up",
             "on-scroll-down": "shift_down"
         }
+    },
+    "custom/updates": {
+        "exec": "checkupdates | wc -l",
+        "format": "{icon} {}",
+        "format-icons": [""],
+        "interval": 300
     },
     "backlight": {
         "device": "intel_backlight",
