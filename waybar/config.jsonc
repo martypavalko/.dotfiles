@@ -58,7 +58,7 @@
         "exec": "checkupdates | wc -l",
         "format": "{icon} {}",
         "format-icons": [""],
-        "interval": 300
+        "restart-interval": 300
     },
     "backlight": {
         "device": "intel_backlight",
