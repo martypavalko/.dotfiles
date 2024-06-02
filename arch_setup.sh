@@ -29,4 +29,4 @@ EOF
 
 pacman -S starship fzf papirus-icon-theme timeshift btrfs-progs grub-btrfs xorg-xhost noto-fonts-emoji
 systemctl enable cronie
-yay -S brightnessctl
+yay -S brightnessctl hyprlock-git
