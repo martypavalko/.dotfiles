@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grep "Host " "$HOME/.ssh/config" | awk '{ print $2 }'
