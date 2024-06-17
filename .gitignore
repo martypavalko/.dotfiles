@@ -1,4 +1,5 @@
 nvim/plugins/*
 nvim/lazy-lock.json
 tmux/plugins
+tmux/resurrect
 !tmux/plugins/tmux/custom/*
