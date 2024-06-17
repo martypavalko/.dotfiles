@@ -17,6 +17,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
+export XDG_CONFIG_FILE="$HOME/.config/"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -26,6 +27,10 @@ plugins=(
     helm
     golang
 )
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
@@ -65,3 +70,4 @@ bindkey ^S history-incremental-search-forward
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
+
