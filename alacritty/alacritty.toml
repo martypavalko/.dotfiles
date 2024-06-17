@@ -38,7 +38,7 @@ style = "Bold Italic"
 program = "/usr/bin/zsh"
 
 [window]
-opacity = 0.9
+opacity = 0.99
 
 [window.padding]
 x = 5
