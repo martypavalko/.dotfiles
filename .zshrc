@@ -46,6 +46,11 @@ alias lg='lazygit'
 alias k='kubectl'
 alias h='helm'
 alias kn='kubectl config set-context --current --namespace'
+alias la='eza --icons -l'
+alias ls='eza --icons -l'
+alias l='eza --icons -l'
+alias lf='yazi'
+alias cat='bat'
 
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux -f ~/.tmux.conf
