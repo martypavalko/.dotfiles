@@ -51,7 +51,6 @@ alias ls='eza --icons -l'
 alias l='eza --icons -l'
 alias ll='eza --icons -l -a -T -L 2'
 alias lf='yazi'
-alias cat='bat'
 
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux -f ~/.tmux.conf
