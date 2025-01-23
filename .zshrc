@@ -56,23 +56,15 @@ alias lf='yazi'
 #   exec tmux -f ~/.tmux.conf
 # fi
 
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-#zprof
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 #Enable Vim mode
 #bindkey -v
 bindkey ^R history-incremental-search-backward 
 bindkey ^S history-incremental-search-forward
 
-# eval "$(starship init zsh)"
+# source <(kubectl completion zsh)
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# echo '[[ $commands[kubectl] ]] && source <(kubectl completion zsh)'
+# autoload bashcompinit && bashcompinit
+# autoload -Uz compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
-
