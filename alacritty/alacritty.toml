@@ -1,22 +1,15 @@
+[general]
 import = [
   # uncomment the flavour you want below:
   #"~/.config/alacritty/catppuccin-latte.toml"
   # "~/.config/alacritty/catppuccin-frappe.toml"
   # "~/.config/alacritty/catppuccin-macchiato.toml"
-  "~/.config/alacritty/catppuccin-mocha.toml"
+  "~/.dotfiles/alacritty/catppuccin-mocha.toml"
 ]
 
 [font]
-size = 10
+size = 24
 builtin_box_drawing = true
-
-# [font.offset]
-# x = 2
-# y = 1
-#
-# [font.glyph_offset]
-# x = 4
-# y = 1
 
 [font.normal]
 family = "JetBrainsMono Nerd Font Mono"
@@ -24,22 +17,32 @@ style = "Regular"
 
 [font.bold]
 family = "JetBrainsMono Nerd Font Mono"
-style = "Bold"
+style = "Regular"
 
 [font.italic]
 family = "JetBrainsMono Nerd Font Mono"
-style = "Italic"
+style = "Regular"
 
 [font.bold_italic]
 family = "JetBrainsMono Nerd Font Mono"
-style = "Bold Italic"
+style = "Regular"
 
-[shell]
-program = "/usr/bin/zsh"
+[terminal.shell]
+program = "/bin/zsh"
 
 [window]
-opacity = 0.95
+opacity = 0.9
+blur = true
+startup_mode = "SimpleFullscreen"
+dynamic_padding = true
 
 [window.padding]
-x = 5
+x = 10
 y = 5
+
+[env]
+HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+HOMEBREW_PREFIX="/opt/homebrew"
+HOMEBREW_REPOSITORY="/opt/homebrew"
+INFOPATH="/opt/homebrew/share/info:/opt/homebrew/share/info:"
+PATH="/Users/mpavalko/.nvm/versions/node/v22.11.0/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/usr/local/share/dotnet:~/.dotnet/tools:/usr/local/go/bin:/Users/mpavalko/.nvm/versions/node/v22.11.0/bin:/mnt/c/Program Files/Oracle/VirtualBox:/usr/local/go/bin:/mnt/c/Program Files/Oracle/VirtualBox"
