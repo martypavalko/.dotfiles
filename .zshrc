@@ -26,6 +26,7 @@ plugins=(
     kubectl
     helm
     golang
+    aws
 )
 
 export NVM_DIR="$HOME/.nvm"
