@@ -55,10 +55,14 @@ alias k='kubectl'
 alias h='helm'
 alias kn='kubectl config set-context --current --namespace'
 alias kc='kubectx'
-alias la='eza --icons -l -a'
-alias ls='eza --icons -l'
-alias l='eza --icons -l'
-alias ll='eza --icons -l -a -T -L 2'
+# alias la='eza --icons -l -a'
+# alias ls='eza --icons -l'
+# alias l='eza --icons -l'
+# alias ll='eza --icons -l -a -T -L 2'
+alias l='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first'
+alias ll='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -l --git -h'
+alias la='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a'
+alias lla='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a -l --git -h'
 alias lf='yazi'
 alias ap='export AWS_PROFILE='
 
@@ -96,3 +100,6 @@ eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/mpavalko/.lmstudio/bin"
