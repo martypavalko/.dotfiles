@@ -41,9 +41,9 @@ plugins=(
     aws
 )
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.config//nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
@@ -51,6 +51,8 @@ if [[ -n $SSH_CONNECTION ]]; then
 # else
 #   export EDITOR='mvim'
 fi
+
+alias watch='watch '
 
 alias vi='nvim'
 alias vim='nvim'
@@ -66,6 +68,9 @@ alias la='eza --color=always --color-scale=all --color-scale-mode=gradient --ico
 alias lla='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a -l --git -h'
 alias lf='yazi'
 alias ap='AWS_PROFILE='
+alias priority='vim ~/work/devops-configs.wiki/priorities.md'
+# Load Angular CLI autocompletion.
+alias ngcomplete='source <(ng completion script)'
 
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux -f ~/.tmux.conf
@@ -88,6 +93,8 @@ bindkey ^S history-incremental-search-forward
 #     eval "$alias_command"
 # done
 
+source ~/.zshrc.secret
+
 yt() {
     local video_link="$1"
     fabric -y "$video_link" --transcript
@@ -101,3 +108,9 @@ eval "$(zoxide init zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/mpavalko/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+
