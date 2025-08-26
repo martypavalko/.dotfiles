@@ -36,7 +36,7 @@ config.color_scheme = 'Catppuccin Mocha'
 config.background = {
     {
         source = {
-            File = '/Users/mpavalko/.dotfiles/wallpapers/a_narrow_street_with_shops_and_signs.png'
+            File = '/Users/mpavalko/.dotfiles/wallpapers/railroad-horizon.png'
         },
         opacity = 1,
     },
@@ -46,11 +46,11 @@ config.background = {
         },
         width = "100%",
         height = "100%",
-        opacity = 0.90,
+        opacity = 0.95,
     },
 }
 config.font = wezterm.font('JetBrainsMono Nerd Font Mono')
-config.font_size = 20
+config.font_size = 22
 config.enable_wayland = false
 
 return config
