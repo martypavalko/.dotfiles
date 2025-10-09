@@ -93,7 +93,9 @@ bindkey ^S history-incremental-search-forward
 #     eval "$alias_command"
 # done
 
-source ~/.zshrc.secret
+if [ -z ~/.zshrc.secret ]; then
+  source ~/.zshrc.secret
+fi
 
 yt() {
     local video_link="$1"
