@@ -25,10 +25,12 @@ export XDG_CONFIG_FILE="$HOME/.config/"
 export XDG_CONFIG_HOME="$HOME/.config/"
 
 # Golang environment variables
-# export GOROOT=$(brew --prefix go)/libexec
-export GOROOT=/usr/local/go
+export GOROOT=$(brew --prefix go)/libexec
+# export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
+
+export ANSIBLE_COLLECTIONS_PATH=/opt/homebrew/Cellar/ansible/13.0.0/libexec/lib/python3.14/site-packages/ansible_collections
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -52,7 +54,11 @@ if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='mvim'
 fi
 
+
+# Needed for `watch {command}` usage
 alias watch='watch '
+
+alias rss='newsboat'
 
 alias vi='nvim'
 alias vim='nvim'
@@ -68,7 +74,7 @@ alias la='eza --color=always --color-scale=all --color-scale-mode=gradient --ico
 alias lla='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a -l --git -h'
 alias lf='yazi'
 alias ap='AWS_PROFILE='
-alias priority='vim ~/work/devops-configs.wiki/priorities.md'
+alias priority='vim ~/work/platform.wiki/priorities.md'
 # Load Angular CLI autocompletion.
 alias ngcomplete='source <(ng completion script)'
 
@@ -78,7 +84,7 @@ alias ngcomplete='source <(ng completion script)'
 
 #Enable Vim mode
 bindkey -v
-bindkey ^R history-incremental-search-backward 
+bindkey ^R history-incremental-search-backward
 bindkey ^S history-incremental-search-forward
 
 # Loop through all files in the ~/.config/fabric/patterns directory
