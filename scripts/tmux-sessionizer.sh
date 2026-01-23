@@ -28,8 +28,15 @@ move_to_session() {
   tmux switch-client -t $session
 }
 
+create_ssh_session() {
+  remote_host=$(grep "Host " "$HOME/.ssh/config" | awk '{ print $2 }' | fzf --reverse)
+  tmux new-window "ssh $remote_host"
+}
+
 if [ "$1" == "--create" ] || [ "$1" == "-c" ]; then
   create_session
 elif [ "$1" == "--move" ] || [ "$1" == "-m" ]; then
   move_to_session
+elif [ "$1" == "--ssh" ]; then
+  create_ssh_session
 fi
