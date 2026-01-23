@@ -1,25 +1,35 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-if [[ $# -eq 1 ]]; then
-    selected=$1
-else
-    selected=$(find ~/Documents ~/projects ~/ ~/work ~/personal -mindepth 1 -maxdepth 1 -type d | fzf --reverse)
-fi
+create_session() {
+  selected=$(find ~/Documents ~/projects ~/ ~/work ~/personal -mindepth 1 -maxdepth 1 -type d | fzf --reverse)
 
-if [[ -z $selected ]]; then
+  if [[ -z $selected ]]; then
     exit 0
-fi
+  fi
 
-selected_name=$(basename "$selected" | tr . _)
-tmux_running=$(pgrep tmux)
+  selected_name=$(basename "$selected" | tr . _)
+  tmux_running=$(pgrep tmux)
 
-if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+  if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
     tmux new-session -s $selected_name -c $selected
     exit 0
-fi
+  fi
 
-if ! tmux has-session -t=$selected_name 2> /dev/null; then
+  if ! tmux has-session -t=$selected_name 2>/dev/null; then
     tmux new-session -ds $selected_name -c $selected
-fi
+  fi
 
-tmux switch-client -t $selected_name
+  tmux switch-client -t $selected_name
+}
+
+move_to_session() {
+  session=$(tmux list-sessions | sed -E 's/:.*$//' | grep -v "$(tmux display-message -p '#S')" | fzf --reverse)
+  tmux move-window -t $session
+  tmux switch-client -t $session
+}
+
+if [ "$1" == "--create" ] || [ "$1" == "-c" ]; then
+  create_session
+elif [ "$1" == "--move" ] || [ "$1" == "-m" ]; then
+  move_to_session
+fi
