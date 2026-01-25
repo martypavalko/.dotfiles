@@ -10,6 +10,15 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/Users/mpavalko/.lmstudio/bin"
 
+case `uname` in
+  Darwin)
+    OS="Mac"
+  ;;
+  Linux)
+    OS="Linux"
+  ;;
+esac
+
 # Needed on WSL
 # export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
 
@@ -25,12 +34,16 @@ export XDG_CONFIG_FILE="$HOME/.config/"
 export XDG_CONFIG_HOME="$HOME/.config/"
 
 # Golang environment variables
-export GOROOT=$(brew --prefix go)/libexec
+if [[ "$OS" == "Mac" ]]; then
+  export GOROOT=$(brew --prefix go)/libexec
+fi
 # export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
 
-export ANSIBLE_COLLECTIONS_PATH=/opt/homebrew/Cellar/ansible/13.0.0/libexec/lib/python3.14/site-packages/ansible_collections
+if [[ "$OS" == "Mac" ]]; then
+  export ANSIBLE_COLLECTIONS_PATH=/opt/homebrew/Cellar/ansible/13.0.0/libexec/lib/python3.14/site-packages/ansible_collections
+fi
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
