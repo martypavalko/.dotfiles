@@ -29,7 +29,7 @@ move_to_session() {
 }
 
 create_ssh_session() {
-  remote_host=$(grep "Host " "$HOME/.ssh/config" | awk '{ print $2 }' | fzf --reverse)
+  remote_host=$(grep "Host " "$HOME/.ssh/config" | grep -v "github.com" | awk '{ print $2 }' | fzf --reverse)
   tmux new-window "ssh $remote_host"
 }
 
