@@ -30,7 +30,7 @@ move_to_session() {
 
 create_ssh_session() {
   remote_host=$(grep "Host " "$HOME/.ssh/config" | grep -v "github.com" | awk '{ print $2 }' | fzf --reverse)
-  tmux new-window "ssh $remote_host"
+  tmux new-window -n "$remote_host" "ssh $remote_host"
 }
 
 if [ "$1" == "--create" ] || [ "$1" == "-c" ]; then
