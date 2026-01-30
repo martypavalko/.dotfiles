@@ -25,3 +25,4 @@ window-padding-balance = true
 
 auto-update = check
 auto-update-channel = stable
+keybind = shift+enter=text:\x1b\r
