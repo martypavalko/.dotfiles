@@ -90,6 +90,7 @@ alias ap='AWS_PROFILE='
 alias priority='vim ~/work/platform.wiki/priorities.md'
 # Load Angular CLI autocompletion.
 alias ngcomplete='source <(ng completion script)'
+alias notify-me='ntfy pub martypavalko '
 
 # if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 #   exec tmux -f ~/.tmux.conf
