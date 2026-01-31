@@ -1,29 +1,25 @@
-if [ -z "$TODO_FILE" ]; then
-  echo "\$TODO_FILE environment variable not set"
-  exit 1
-fi
+#!/bin/bash
+CACHE_FILE="$HOME/.cache/tmux-todo-file"
+TODO_DIR="$HOME/todo"
 
-if [ ! -f "$TODO_FILE" ]; then
-  echo "File at path: $TODO_FILE does not exist"
-  exit 1
-fi
+# -p (pick): fuzzy select a file and save it
+# -b (banner): read saved file and display counts
 
-total_task_count=$(grep "^\- \[[x ]\]" $TODO_FILE | wc -l | tr -d " ")
-completed_task_count=$(grep "^\- \[x\]" $TODO_FILE | wc -l | tr -d " ")
-incomplete_task_count=$(grep "^\- \[ \]" $TODO_FILE | wc -l | tr -d " ")
-
-# 󰄱
-# 
-
-display_banner() {
-  echo "󰄱 $incomplete_task_count /  $completed_task_count"
+pick_todo() {
+  selected=$(find "$TODO_DIR" -type f | fzf --reverse)
+  [ -n "$selected" ] && echo "$selected" >"$CACHE_FILE"
 }
 
-if [ "$1" == "--banner" ] || [ "$1" == "-b" ]; then
-  display_banner
-fi
+display_banner() {
+  [ ! -f "$CACHE_FILE" ] && echo "no todo" && exit 0
+  file=$(cat "$CACHE_FILE")
+  [ ! -f "$file" ] && echo "todo file empty" && exit 0
+  completed=$(grep -c "^\- \[x\]" "$file")
+  incomplete=$(grep -c "^\- \[ \]" "$file")
+  echo "󰄱 $incomplete  $completed"
+}
 
-# DEBUG LINES
-# echo "Total task count: $total_task_count"
-# echo "Completed task count: $completed_task_count"
-# echo "Incomplete task count: $incomplete_task_count"
+case "$1" in
+-p | --pick) pick_todo ;;
+-b | --banner) display_banner ;;
+esac
