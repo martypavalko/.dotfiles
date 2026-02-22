@@ -54,6 +54,9 @@ plugins=(
     docker
     golang
     aws
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    zsh-history-substring-search
 )
 
 export NVM_DIR="$HOME/.config//nvm"
