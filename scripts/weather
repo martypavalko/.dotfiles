@@ -1,0 +1,17 @@
+#!/bin/bash
+
+get_weather() {
+  location="${1:-Niles+Ohio}"
+  curl "wttr.in/$location?u"
+}
+
+get_weather_short() {
+  location="${1:-Niles+Ohio}"
+  curl "wttr.in/$location?u&format=1"
+}
+
+if [ "$1" == "short" ]; then
+  get_weather_short "$2"
+else
+  get_weather "$@"
+fi
