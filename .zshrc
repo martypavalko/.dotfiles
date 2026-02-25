@@ -125,9 +125,21 @@ yt() {
     fabric -y "$video_link" --transcript
 }
 
-ap() {
-  export AWS_PROFILE=$(rg '^\[profile (.+)\]' ~/.aws/config --replace '$1' --no-filename | fzf)
+aws_profile_picker() {
+  if [[ -z $TMUX ]]; then
+    export AWS_PROFILE=$(rg '^\[profile (.+)\]' ~/.aws/config --replace '$1' --no-filename | fzf --reverse)
+  else
+    local tmpfile=$(mktemp)
+    tmux display-popup -E "rg '^\[profile (.+)\]' ~/.aws/config --replace '\$1' --no-filename | fzf --reverse > $tmpfile"
+    local selected_profile=$(cat "$tmpfile")
+    rm -f "$tmpfile"
+    if [[ -n $selected_profile ]]; then
+      export AWS_PROFILE=$selected_profile
+    fi
+  fi
 }
+
+alias ap=aws_profile_picker
 
 # source <(kubectl completion zsh)
 
