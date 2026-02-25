@@ -90,7 +90,6 @@ alias ll='eza --color=always --color-scale=all --color-scale-mode=gradient --ico
 alias la='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a'
 alias lla='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a -l --git -h'
 alias lf='yazi'
-alias ap='AWS_PROFILE='
 alias priority='vim ~/work/platform.wiki/priorities.md'
 # Load Angular CLI autocompletion.
 alias ngcomplete='source <(ng completion script)'
@@ -117,13 +116,17 @@ bindkey ^S history-incremental-search-forward
 #     eval "$alias_command"
 # done
 
-if [ -z ~/.zshrc.secret ]; then
+if [ -f ~/.zshrc.secret ]; then
   source ~/.zshrc.secret
 fi
 
 yt() {
     local video_link="$1"
     fabric -y "$video_link" --transcript
+}
+
+ap() {
+  export AWS_PROFILE=$(rg '^\[profile (.+)\]' ~/.aws/config --replace '$1' --no-filename | fzf)
 }
 
 # source <(kubectl completion zsh)
