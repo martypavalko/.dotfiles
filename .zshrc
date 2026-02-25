@@ -9,6 +9,7 @@ eval `ssh-agent -s` >/dev/null
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/Users/mpavalko/.lmstudio/bin"
+export PATH="$PATH:/home/marty/.dotnet/tools"
 
 case `uname` in
   Darwin)
