@@ -34,6 +34,11 @@ export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
 export XDG_CONFIG_FILE="$HOME/.config/"
 export XDG_CONFIG_HOME="$HOME/.config/"
 
+# Ruby installed via brew
+if [[ "$OS" == "Mac" ]]; then
+  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+fi
+
 # Golang environment variables
 if [[ "$OS" == "Mac" ]]; then
   export GOROOT=$(brew --prefix go)/libexec
