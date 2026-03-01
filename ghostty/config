@@ -1,4 +1,5 @@
-theme = catppuccin-mocha
+# theme = TokyoNight Night
+theme = Catppuccin Mocha
 
 title = "Ghostty"
 
