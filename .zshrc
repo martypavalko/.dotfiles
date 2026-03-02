@@ -51,6 +51,9 @@ if [[ "$OS" == "Mac" ]]; then
   export ANSIBLE_COLLECTIONS_PATH=/opt/homebrew/Cellar/ansible/13.0.0/libexec/lib/python3.14/site-packages/ansible_collections
 fi
 
+export PATH="$HOME/.rbenv/shims:$PATH"
+eval "$(rbenv init - zsh)"
+
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 plugins=(
