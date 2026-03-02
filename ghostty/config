@@ -11,7 +11,7 @@ font-size = 24
 cursor-style = block
 cursor-style-blink = false
 shell-integration = zsh
-shell-integration-features = no-cursor
+shell-integration-features = cursor,sudo,title
 cursor-invert-fg-bg = true
 
 macos-option-as-alt = true
