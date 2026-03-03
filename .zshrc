@@ -73,11 +73,12 @@ export NVM_DIR="$HOME/.config//nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 source $ZSH/oh-my-zsh.sh
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-# else
-#   export EDITOR='mvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='nvim'
+# # else
+# #   export EDITOR='mvim'
+# fi
+export EDITOR='nvim'
 
 
 # Needed for `watch {command}` usage
