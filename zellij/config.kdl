@@ -123,7 +123,7 @@ keybinds clear-defaults=true {
                 floating true
                 move_to_focused_tab true
             }
-            SwitchToMode "normal"
+            SwitchToMode "locked"
         }
         bind "f" {
             LaunchOrFocusPlugin "forgot" {
@@ -159,7 +159,6 @@ keybinds clear-defaults=true {
     }
     shared_except "locked" {
         bind "Ctrl f" { SwitchToMode "locked"; }
-        bind "esc" { SwitchToMode "locked"; }
         bind "Ctrl c" { SwitchToMode "locked"; }
         bind "Ctrl Shift p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
@@ -197,7 +196,8 @@ keybinds clear-defaults=true {
     }
     shared_among "scroll" "search" {
         bind "Ctrl u" { PageScrollUp; }
-        bind "Ctrl c" { ScrollToBottom; SwitchToMode "locked"; }
+        bind "G" { ScrollToBottom; }
+        bind "Ctrl c" { SwitchToMode "locked"; }
         bind "d" { HalfPageScrollDown; }
         bind "Ctrl d" { PageScrollDown; }
         bind "h" { PageScrollUp; }
