@@ -4,12 +4,12 @@ layout {
             plugin location="https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm" {
                 format_left   "{mode} {datetime}"
                 format_center "{tabs}"
-                format_right  "#[fg=#89B4FA,bold] {session} #[fg=#fab387]{command_pwd}"
+                format_right  "#[fg=#fab387,bold] {session} #[fg=#89B4FA]{command_pwd}"
                 format_space  ""
                 format_hide_on_overlength "true"
                 formate_precedence "crl"
 
-                command_pwd_command "pwd"
+                command_pwd_command "bash -c \"pwd | $HOME/.dotfiles/scripts/shortpath\""
                 command_pwd_format "{stdout}"
                 command_pwd_interval "1"
                 command_pwd_rendermode "static"
@@ -22,7 +22,7 @@ layout {
                 hide_frame_for_single_pane "true"
 
                 mode_normal        "#[bg=#11111b,fg=#cdd6f4] {name} "
-                mode_locked        "#[fg=#cdd6f4]  Zellij "
+                mode_locked        "#[fg=#cba6f7,bold] Zellij "
                 mode_resize        "#[bg=#89b4fa,fg=#1e1e2e] {name} "
                 mode_pane          "#[bg=#fab387,fg=#1e1e2e] {name} "
                 mode_tab           "#[bg=#a6e3a1,fg=#1e1e2e] {name} "
