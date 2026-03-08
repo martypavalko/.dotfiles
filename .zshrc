@@ -51,8 +51,10 @@ if [[ "$OS" == "Mac" ]]; then
   export ANSIBLE_COLLECTIONS_PATH=/opt/homebrew/Cellar/ansible/13.0.0/libexec/lib/python3.14/site-packages/ansible_collections
 fi
 
-export PATH="$HOME/.rbenv/shims:$PATH"
-eval "$(rbenv init - zsh)"
+if [ -f "$(which rbenv)" ]; then
+    export PATH="$HOME/.rbenv/shims:$PATH"
+    eval "$(rbenv init - zsh)"
+fi
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
@@ -72,13 +74,9 @@ export NVM_DIR="$HOME/.config//nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-source $ZSH/oh-my-zsh.sh
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='nvim'
-# # else
-# #   export EDITOR='mvim'
-# fi
-export EDITOR='nvim'
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+    source $ZSH/oh-my-zsh.sh
+fi
 
 
 # Needed for `watch {command}` usage
@@ -86,9 +84,13 @@ alias watch='watch '
 
 alias rss='newsboat'
 
-alias vi='nvim'
-alias vim='nvim'
-alias nv='nvim'
+if [ -f "$(which nvim)" ]; then
+    export EDITOR='nvim'
+    alias vi='nvim'
+    alias vim='nvim'
+    alias nv='nvim'
+fi
+
 alias lg='lazygit'
 alias k='kubectl'
 alias h='helm'
@@ -154,7 +156,9 @@ alias ap=aws_profile_picker
 
 # autoload bashcompinit && bashcompinit
 # autoload -Uz compinit && compinit
-eval "$(zoxide init zsh)"
+if [ -f "$(which zoxide)" ]; then
+    eval "$(zoxide init zsh)"
+fi
 
 # To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
