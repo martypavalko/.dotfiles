@@ -11,6 +11,11 @@ export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/Users/mpavalko/.lmstudio/bin"
 export PATH="$PATH:/home/marty/.dotnet/tools"
 
+#Enable Vim mode
+bindkey -v
+bindkey ^R history-incremental-search-backward
+bindkey ^S history-incremental-search-forward
+
 case `uname` in
     Darwin)
         OS="Mac"
@@ -19,9 +24,6 @@ case `uname` in
         OS="Linux"
         ;;
 esac
-
-# Needed on WSL
-# export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"
 
 export ELECTRON_OZONE_PLATFORM_HINT="wayland"
 export FZF_DEFAULT_OPTS=" \
@@ -37,19 +39,12 @@ export XDG_CONFIG_HOME="$HOME/.config/"
 # Ruby installed via brew
 if [[ "$OS" == "Mac" ]]; then
     export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-fi
-
-# Golang environment variables
-if [[ "$OS" == "Mac" ]]; then
     export GOROOT=$(brew --prefix go)/libexec
-fi
-# export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
-
-if [[ "$OS" == "Mac" ]]; then
     export ANSIBLE_COLLECTIONS_PATH=/opt/homebrew/Cellar/ansible/13.0.0/libexec/lib/python3.14/site-packages/ansible_collections
 fi
+
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
 
 if [ -f "$(which rbenv)" ]; then
     export PATH="$HOME/.rbenv/shims:$PATH"
@@ -78,11 +73,8 @@ if [ -f "$ZSH/oh-my-zsh.sh" ]; then
     source $ZSH/oh-my-zsh.sh
 fi
 
-
 # Needed for `watch {command}` usage
 alias watch='watch '
-
-alias rss='newsboat'
 
 if [ -f "$(which nvim)" ]; then
     export EDITOR='nvim'
@@ -96,36 +88,18 @@ alias k='kubectl'
 alias h='helm'
 alias kn='kubectl config set-context --current --namespace'
 alias kc='kubectx'
+if [ -f "$(which eza)" ]; then
 alias l='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first'
 alias ll='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -l --git -h'
 alias la='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a'
 alias lla='eza --color=always --color-scale=all --color-scale-mode=gradient --icons=always --group-directories-first -a -l --git -h'
+fi
+if [ -f "$(which yazi)" ]; then
 alias lf='yazi'
-alias priority='vim ~/work/platform.wiki/priorities.md'
+fi
 # Load Angular CLI autocompletion.
 alias ngcomplete='source <(ng completion script)'
 alias notify-me='ntfy pub martypavalko '
-
-# if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-#   exec tmux -f ~/.tmux.conf
-# fi
-
-#Enable Vim mode
-bindkey -v
-bindkey ^R history-incremental-search-backward
-bindkey ^S history-incremental-search-forward
-
-# Loop through all files in the ~/.config/fabric/patterns directory
-# for pattern_file in $HOME/.config/fabric/patterns/*; do
-#     # Get the base name of the file (i.e., remove the directory path)
-#     pattern_name=$(basename "$pattern_file")
-#
-#     # Create an alias in the form: alias pattern_name="fabric --pattern pattern_name"
-#     alias_command="alias $pattern_name='fabric --pattern $pattern_name'"
-#
-#     # Evaluate the alias command to add it to the current shell
-#     eval "$alias_command"
-# done
 
 if [ -f ~/.zshrc.secret ]; then
     source ~/.zshrc.secret
@@ -152,10 +126,6 @@ aws_profile_picker() {
 
 alias ap=aws_profile_picker
 
-# source <(kubectl completion zsh)
-
-# autoload bashcompinit && bashcompinit
-# autoload -Uz compinit && compinit
 if [ -f "$(which zoxide)" ]; then
     eval "$(zoxide init zsh)"
 fi
