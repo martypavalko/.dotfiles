@@ -2,7 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 eval `ssh-agent -s` >/dev/null
 
@@ -12,12 +12,12 @@ export PATH="$PATH:/Users/mpavalko/.lmstudio/bin"
 export PATH="$PATH:/home/marty/.dotnet/tools"
 
 case `uname` in
-  Darwin)
-    OS="Mac"
-  ;;
-  Linux)
-    OS="Linux"
-  ;;
+    Darwin)
+        OS="Mac"
+        ;;
+    Linux)
+        OS="Linux"
+        ;;
 esac
 
 # Needed on WSL
@@ -25,9 +25,9 @@ esac
 
 export ELECTRON_OZONE_PLATFORM_HINT="wayland"
 export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+    --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
@@ -36,19 +36,19 @@ export XDG_CONFIG_HOME="$HOME/.config/"
 
 # Ruby installed via brew
 if [[ "$OS" == "Mac" ]]; then
-  export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+    export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 fi
 
 # Golang environment variables
 if [[ "$OS" == "Mac" ]]; then
-  export GOROOT=$(brew --prefix go)/libexec
+    export GOROOT=$(brew --prefix go)/libexec
 fi
 # export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH
 
 if [[ "$OS" == "Mac" ]]; then
-  export ANSIBLE_COLLECTIONS_PATH=/opt/homebrew/Cellar/ansible/13.0.0/libexec/lib/python3.14/site-packages/ansible_collections
+    export ANSIBLE_COLLECTIONS_PATH=/opt/homebrew/Cellar/ansible/13.0.0/libexec/lib/python3.14/site-packages/ansible_collections
 fi
 
 if [ -f "$(which rbenv)" ]; then
@@ -128,7 +128,7 @@ bindkey ^S history-incremental-search-forward
 # done
 
 if [ -f ~/.zshrc.secret ]; then
-  source ~/.zshrc.secret
+    source ~/.zshrc.secret
 fi
 
 yt() {
@@ -137,17 +137,17 @@ yt() {
 }
 
 aws_profile_picker() {
-  if [[ -z $TMUX ]]; then
-    export AWS_PROFILE=$(rg '^\[profile (.+)\]' ~/.aws/config --replace '$1' --no-filename | fzf --reverse)
-  else
-    local tmpfile=$(mktemp)
-    tmux display-popup -E "rg '^\[profile (.+)\]' ~/.aws/config --replace '\$1' --no-filename | fzf --reverse > $tmpfile"
-    local selected_profile=$(cat "$tmpfile")
-    rm -f "$tmpfile"
-    if [[ -n $selected_profile ]]; then
-      export AWS_PROFILE=$selected_profile
+    if [[ -z $TMUX ]]; then
+        export AWS_PROFILE=$(rg '^\[profile (.+)\]' ~/.aws/config --replace '$1' --no-filename | fzf --reverse)
+    else
+        local tmpfile=$(mktemp)
+        tmux display-popup -E "rg '^\[profile (.+)\]' ~/.aws/config --replace '\$1' --no-filename | fzf --reverse > $tmpfile"
+        local selected_profile=$(cat "$tmpfile")
+        rm -f "$tmpfile"
+        if [[ -n $selected_profile ]]; then
+            export AWS_PROFILE=$selected_profile
+        fi
     fi
-  fi
 }
 
 alias ap=aws_profile_picker
