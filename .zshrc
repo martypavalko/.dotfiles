@@ -11,10 +11,6 @@ export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:/Users/mpavalko/.lmstudio/bin"
 export PATH="$PATH:/home/marty/.dotnet/tools"
 
-#Enable Vim mode
-bindkey -v
-bindkey ^R history-incremental-search-backward
-bindkey ^S history-incremental-search-forward
 
 case `uname` in
     Darwin)
@@ -73,6 +69,13 @@ if [ -f "$ZSH/oh-my-zsh.sh" ]; then
     source $ZSH/oh-my-zsh.sh
 fi
 
+# Enable Vim mode (must be after oh-my-zsh source)
+bindkey -v
+bindkey ^R history-incremental-search-backward
+bindkey ^S history-incremental-search-forward
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
 # Needed for `watch {command}` usage
 alias watch='watch '
 
@@ -100,6 +103,7 @@ fi
 # Load Angular CLI autocompletion.
 alias ngcomplete='source <(ng completion script)'
 alias notify-me='ntfy pub martypavalko '
+alias ssh='TERM=screen ssh '
 
 if [ -f ~/.zshrc.secret ]; then
     source ~/.zshrc.secret
