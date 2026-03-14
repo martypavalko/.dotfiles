@@ -10,14 +10,14 @@ git config --global user.name "Marty Pavalko"
 git config --global user.email marty@martypavalko.com
 
 mkdir -p /home/marty/.ssh && chmod 700 /home/marty/.ssh
-tee -a /home/marty/.ssh <<EOF
+tee -a /home/marty/.ssh/config <<EOF
 Host github.com
     HostName github.com
     PreferredAuthentications publickey
     IdentityFile /home/marty/.ssh/github
 EOF
 
-pacman -S fzf ripgrep tmux unzip rust nvm lazygit ghostty
+pacman -S fzf ripgrep tmux unzip rust nvm lazygit ghostty zoxide man-db --noconfirm
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 # pacman -S fzf timeshift btrfs-progs grub-btrfs xorg-xhost
