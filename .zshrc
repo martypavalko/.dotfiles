@@ -8,8 +8,8 @@ eval `ssh-agent -s` >/dev/null
 
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:/Users/mpavalko/.lmstudio/bin"
-export PATH="$PATH:$HOME/marty/.dotnet/tools"
+export PATH="$PATH:$HOME/.lmstudio/bin"
+export PATH="$PATH:$HOME/.dotnet/tools"
 
 
 case `uname` in
@@ -138,7 +138,7 @@ fi
 [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/mpavalko/.rd/bin:$PATH"
+export PATH="$HOME/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 
