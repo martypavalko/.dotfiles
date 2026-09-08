@@ -4,3 +4,7 @@ tmux/plugins
 tmux/resurrect
 !tmux/plugins/tmux/custom/*
 .DS_Store
+herdr/**
+!herdr/.config
+!herdr/.config/herdr
+!herdr/.config/herdr/config.toml
