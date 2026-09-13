@@ -69,3 +69,7 @@ hl.unbind("SUPER + SLASH")
 hl.unbind("SUPER + ALT + SLASH")
 
 o.bind("SUPER + SLASH", "Toggle workspace layout", "omarchy-hyprland-workspace-layout-toggle")
+
+hl.unbind("CTRL + ALT + TAB")
+
+o.bind("CTRL + ALT + TAB", "Toggle workspace layout", hl.dsp.workspace.move({ monitor = "+1" }))
