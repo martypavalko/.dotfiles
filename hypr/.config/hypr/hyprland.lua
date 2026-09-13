@@ -27,3 +27,23 @@ require("default.hypr.toggles")
 
 -- Add any other personal Hyprland configuration below.
 -- o.window("qemu", { workspace = "5" })
+
+local function dir_exists(path)
+  -- Remove trailing slashes for consistency
+  local clean_path = path:gsub("[/\\]$", "")
+  local ok, _, code = os.rename(clean_path, clean_path)
+  if not ok then
+    if code == 13 then return true end -- Permission denied, but it exists
+    return false
+  end
+  return true
+end
+
+if dir_exists(os.getenv("HOME") .. "/.config/omarchy/plugins/crmne.hyprmoncfg") then
+  -- Added by hyprmoncfg: its generated monitor rules load last, so nothing before this can override the applied layout.
+  do
+    local path = os.getenv("HOME") .. "/.config/hypr/hyprmoncfg-monitors.lua"; local file = io.open(path, "r"); if file then
+      file:close(); dofile(path)
+    end
+  end
+end

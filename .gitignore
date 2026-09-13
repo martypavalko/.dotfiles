@@ -8,3 +8,4 @@ herdr/**
 !herdr/.config
 !herdr/.config/herdr
 !herdr/.config/herdr/config.toml
+hyprmoncfg-monitors.lua
