@@ -28,6 +28,9 @@ symbol = " "
 [cmake]
 symbol = " "
 
+[cmd_duration]
+format = " [$duration]($style)"
+
 [cobol]
 symbol = " "
 
@@ -83,27 +86,29 @@ symbol = "󱇶 "
 symbol = " "
 
 [git_branch]
+format = "[$symbol$branch]($style) "
 symbol = " "
 
 [git_commit]
 tag_symbol = '  '
 
 [git_status]
-format     = '[$all_status]($style)'
-style      = "cyan"
-ahead      = "${count} "
-diverged   = "󰙁${ahead_count}⇣${behind_count} "
-behind     = "${count} "
-conflicted = " "
-up_to_date = " "
-untracked  = "󰋗 "
-modified   = " "
-stashed    = ""
-staged     = "󰐗"
-renamed    = ""
-deleted    = ""
+format = '[$all_status$ahead_behind]($style)'
+style = 'cyan'
+ahead = '⇡${count} '
+diverged = '⇕${ahead_count}⇣${behind_count} '
+behind = '⇣${count} '
+conflicted = '='
+up_to_date = ''
+untracked = '?'
+modified = '!'
+stashed = '\$'
+staged = '+'
+renamed = '»'
+deleted = '✘'
 
 [golang]
+format = "[$symbol($version)]($style)"
 symbol = " "
 
 [gradle]
@@ -167,6 +172,7 @@ symbol = " "
 symbol = " "
 
 [nodejs]
+format = "[$symbol($version)]($style)"
 symbol = " "
 
 [ocaml]
@@ -242,6 +248,7 @@ Windows = "󰍲 "
 Zorin = " "
 
 [package]
+format = "[$symbol$version]($style) "
 symbol = "󰏗 "
 
 [perl]
