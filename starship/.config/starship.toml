@@ -145,6 +145,7 @@ symbol = " "
 symbol = "󱃾 "
 
 [lua]
+format = "[$symbol$version]($style) "
 symbol = " "
 
 [maven]
