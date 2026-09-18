@@ -28,11 +28,35 @@ keymap.set("n", "N", "Nzzzv", { desc = "Previous search result centered" })
 
 -- Better integrated terminal-mode
 keymap.set("n", "<leader>st", function()
+  return false
+end)
+
+keymap.set("n", "<leader>st", function()
   vim.cmd.vnew()
   vim.cmd.term()
   vim.cmd.wincmd("J")
   vim.api.nvim_win_set_height(0, 5)
-end)
+end, { desc = "Open integrated terminal" })
+
+-- Reconfigure buffer picker
+vim.keymap.set("n", "<leader>fb", function()
+  Snacks.picker.buffers({
+    on_show = function()
+      vim.cmd.stopinsert()
+    end,
+    win = {
+      input = {
+        keys = {
+          ["d"] = { "bufdelete", mode = { "n" } },
+        }
+      }
+    }
+  })
+end, { desc = "Buffers" })
+
+-- Remove lazy buffer swap
+-- vim.keymap.del("n", "H")
+-- vim.keymap.del("n", "L")
 
 -- Remap 'exit terminal-mode'
 vim.cmd("tnoremap <Esc><Esc> <C-\\><C-n>")
