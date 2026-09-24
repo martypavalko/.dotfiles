@@ -13,3 +13,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     require("conform").format({ bufnr = args.buf })
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
+  callback = function()
+    -- Set your preferred line length (80 characters is standard for Markdown)
+    vim.opt_local.textwidth = 80
+
+    -- Re-enable text and comment auto-formatting for this file type
+    vim.opt_local.formatoptions:append({ "t", "c" })
+  end,
+})

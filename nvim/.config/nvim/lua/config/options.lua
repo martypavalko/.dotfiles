@@ -14,3 +14,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "81"
 
 vim.opt.textwidth = 80
+
+vim.opt.textwidth = 0
+vim.opt.wrapmargin = 0
