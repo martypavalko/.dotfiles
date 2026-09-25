@@ -60,6 +60,7 @@ read_only = " 󰌾"
 symbol = " "
 
 [dotnet]
+format = " [$symbol($version )(🎯 $tfm )]($style)"
 symbol = " "
 
 [elixir]
