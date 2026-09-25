@@ -38,7 +38,12 @@ focus_pane_down = "prefix+j"
 focus_pane_up = "prefix+k"
 focus_pane_right = "prefix+l"
 
-resize_mode = ["prefix+ctrl+h", "prefix+ctrl+j", "prefix+ctrl+k", "prefix+ctrl+l"]
+resize_mode = [
+  "prefix+ctrl+h",
+  "prefix+ctrl+j",
+  "prefix+ctrl+k",
+  "prefix+ctrl+l",
+]
 
 # Like resize-pane on C-M-S-arrows
 resize_pane_left = "prefix+shift+h"
