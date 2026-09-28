@@ -10,6 +10,11 @@ if command -v zoxide &>/dev/null; then
   eval "$(zoxide init bash)"
 fi
 
+if command -v bat &>/dev/null; then
+  alias cat="bat --paging=never"
+  alias less="bat"
+fi
+
 if command -v eza &>/dev/null; then
   alias ls='eza -lh --group-directories-first --icons=auto'
   alias lsa='ls -a'
