@@ -45,6 +45,9 @@ bindswitch --reload --locked lid:off output eDP-1 enable
 # Launch Wiremix in a floating Foot terminal
 bindsym $mod+Shift+v exec foot --title="Audio Mixer" --app-id="floating_mixer" wiremix
 
+bindsym $mod+Comma exec makoctl dismiss
+bindsym $mod+Shift+Comma exec makoctl dismiss -a
+
 # Force the audio mixer to float and center
 for_window [app_id="floating_mixer"] floating enable, resize set 800 500, move position center
 
