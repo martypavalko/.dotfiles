@@ -39,6 +39,16 @@ gaps inner 5
 default_border none
 default_floating_border none
 
+bindswitch --reload --locked lid:on output eDP-1 disable
+bindswitch --reload --locked lid:off output eDP-1 enable
+
+# Launch Wiremix in a floating Foot terminal
+bindsym $mod+Shift+v exec foot --title="Audio Mixer" --app-id="floating_mixer" wiremix
+
+# Force the audio mixer to float and center
+for_window [app_id="floating_mixer"] floating enable, resize set 800 500, move position center
+
+
 #
 # Example configuration:
 #
@@ -194,10 +204,10 @@ mode "resize" {
     # right will grow the containers width
     # up will shrink the containers height
     # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    bindsym $left resize shrink width 25px
+    bindsym $down resize grow height 25px
+    bindsym $up resize shrink height 25px
+    bindsym $right resize grow width 25px
 
     # Return to default mode
     bindsym Return mode "default"
