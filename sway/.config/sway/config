@@ -12,6 +12,8 @@ set $rofi_cmd rofi \
 
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
+set $floating_size 1200 1000
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -20,6 +22,8 @@ output * bg /usr/share/backgrounds/default.jxl fill
 
 gaps outer 10
 gaps inner 5
+
+exec gammastep &
 
 default_border none
 default_floating_border none
@@ -32,8 +36,9 @@ bindsym $mod+Shift+v exec $term --title="Audio Mixer" --app-id="floating_mixer" 
 bindsym $mod+Comma exec makoctl dismiss
 bindsym $mod+Shift+Comma exec makoctl dismiss -a
 
-for_window [app_id="floating_mixer"] floating enable, resize set 800 500, move position center
+for_window [app_id="floating_mixer"] floating enable, resize set $floating_size, move position center
 
+bindsym $mod+apostrophe exec pkill -x gammastep || gammastep &
 
 #
 # Example configuration:
