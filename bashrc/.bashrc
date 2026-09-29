@@ -11,8 +11,8 @@ if command -v zoxide &>/dev/null; then
 fi
 
 if command -v bat &>/dev/null; then
-  alias cat="bat --paging=never"
-  alias less="bat"
+  alias cat="bat -p --paging=never"
+  alias less="bat -p"
 fi
 
 if command -v eza &>/dev/null; then
@@ -40,3 +40,19 @@ if command -v zoxide &>/dev/null; then
     fi
   }
 fi
+
+aws_profile_picker() {
+  if [[ -z $TMUX ]]; then
+    export AWS_PROFILE=$(rg '^\[profile (.+)\]' ~/.aws/config --replace '$1' --no-filename | fzf --reverse)
+  else
+    local tmpfile=$(mktemp)
+    tmux display-popup -E "rg '^\[profile (.+)\]' ~/.aws/config --replace '\$1' --no-filename | fzf --reverse > $tmpfile"
+    local selected_profile=$(cat "$tmpfile")
+    rm -f "$tmpfile"
+    if [[ -n $selected_profile ]]; then
+      export AWS_PROFILE=$selected_profile
+    fi
+  fi
+}
+
+alias ap=aws_profile_picker
