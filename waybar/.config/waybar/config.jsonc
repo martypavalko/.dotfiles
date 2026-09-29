@@ -8,7 +8,6 @@
     "idle_inhibitor",
     "pulseaudio",
     "network",
-    "power-profiles-daemon",
     "cpu",
     "memory",
     "temperature",
@@ -102,6 +101,7 @@
   "cpu": {
     "format": "{usage}% ",
     "tooltip": false,
+    "on-click": "foot --title=\"System Monitor\" --app-id=floating_top btop",
   },
   "memory": {
     "format": "{}% ",
@@ -150,19 +150,21 @@
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
+    // "format-wifi": "{essid}  ({signalStrength}%)",
+    "format-wifi": " ({signalStrength}%)",
+    "format-ethernet": "{ipaddr}/{cidr}",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "format-linked": "{ifname} (No IP)",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    // "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "on-click": "foot --title=Wifi --app-id=floating_wifi ~/.cargo/bin/impala",
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon} {format_source}",
     "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
+    "format-bluetooth-muted": "{icon} {format_source}",
+    "format-muted": "{format_source}",
     "format-source": "{volume}% ",
     "format-source-muted": "",
     "format-icons": {
@@ -174,30 +176,6 @@
       "car": "",
       "default": ["", "", ""],
     },
-    "on-click": "foot --title=\"Audio Mixer\" --app-id=\"floating_mixer\" wiremix",
-  },
-  "custom/media": {
-    "format": "{icon} {text}",
-    "return-type": "json",
-    "max-length": 40,
-    "format-icons": {
-      "spotify": "",
-      "default": "🎜",
-    },
-    "escape": true,
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
-    // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-  },
-  "custom/power": {
-    "format": "⏻ ",
-    "tooltip": false,
-    "menu": "on-click",
-    "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-    "menu-actions": {
-      "shutdown": "shutdown",
-      "reboot": "reboot",
-      "suspend": "systemctl suspend",
-      "hibernate": "systemctl hibernate",
-    },
+    "on-click": "foot --title=\"Audio Mixer\" --app-id=\"floating_mixer\" wiremix -v output --mouse",
   },
 }
