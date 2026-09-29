@@ -23,13 +23,14 @@ output * bg /usr/share/backgrounds/default.jxl fill
 gaps outer 10
 gaps inner 5
 
+exec_always pkill kanshi; exec kanshi
 exec gammastep &
 
 default_border none
 default_floating_border none
 
-bindswitch --reload --locked lid:on output eDP-1 disable
-bindswitch --reload --locked lid:off output eDP-1 enable
+# bindswitch --reload --locked lid:on output eDP-1 disable
+# bindswitch --reload --locked lid:off output eDP-1 enable
 
 bindsym $mod+Shift+v exec $term --title="Audio Mixer" --app-id="floating_mixer" wiremix
 

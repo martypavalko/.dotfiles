@@ -1,0 +1,9 @@
+profile {
+  output "DP-5" mode 2560x1440@143.912Hz position 2560,1440 scale 1.0
+  output "HDMI-A-1" mode 2560x1440@143.912Hz position 2560,0 scale 1.0
+  output "eDP-1" disable
+}
+
+profile {
+    output "eDP-1" mode 1920x1080@60Hz enable scale 1.0 position 0,0
+}
