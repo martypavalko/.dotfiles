@@ -32,14 +32,18 @@ default_floating_border none
 # bindswitch --reload --locked lid:on output eDP-1 disable
 # bindswitch --reload --locked lid:off output eDP-1 enable
 
-bindsym $mod+Shift+v exec $term --title="Audio Mixer" --app-id="floating_mixer" wiremix
+bindsym $mod+Shift+v exec $term --title="Audio Mixer" --app-id="floating_mixer" wiremix -v output
 
 bindsym $mod+Comma exec makoctl dismiss
 bindsym $mod+Shift+Comma exec makoctl dismiss -a
 
-for_window [app_id="floating_mixer"] floating enable, resize set $floating_size, move position center
+for_window [app_id="floating_*"] floating enable, resize set $floating_size, move position center
 
 bindsym $mod+apostrophe exec pkill -x gammastep || gammastep &
+
+bindsym Control+Alt+Tab move workspace to output right
+
+bindsym $mod+z floating toggle; resize set width 100 ppt height 100 ppt; move position center
 
 #
 # Example configuration:
