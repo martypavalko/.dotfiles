@@ -41,6 +41,16 @@ if command -v zoxide &>/dev/null; then
   }
 fi
 
+if command -v kubectx &>/dev/null && command -v kubens &>/dev/null; then
+  alias kc=kubectx
+  alias kn=kubens
+fi
+
+if command -v kubectl &>/dev/null; then
+  alias k=kubectl
+  alias kg="kubectl get"
+fi
+
 aws_profile_picker() {
   if [[ -z $TMUX ]]; then
     export AWS_PROFILE=$(rg '^\[profile (.+)\]' ~/.aws/config --replace '$1' --no-filename | fzf --reverse)
