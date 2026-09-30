@@ -41,7 +41,7 @@ for_window [app_id="floating_*"] floating enable, resize set $floating_size, mov
 
 bindsym $mod+apostrophe exec pkill -x gammastep || gammastep &
 
-bindsym Control+Alt+Tab move workspace to output right
+bindsym Control+Alt+Tab exec sh ~/.config/sway/cycle-workspace-output
 
 bindsym Alt+Shift+s exec slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 bindsym $mod+Shift+s exec grim -g "$(slurp)" -t png - | wl-copy -t image/png

@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+current_output=$(swaymsg -t get_workspaces -r | jq -er '.[] | select(.focused) | .output')
+next_output=$(swaymsg -t get_outputs -r | jq -r --arg current "$current_output" '
+  [.[] | select(.active) | .name] | sort as $outputs |
+  ($outputs | index($current)) as $index |
+  if ($index == null or ($outputs | length) < 2) then empty
+  else $outputs[(($index + 1) % ($outputs | length))] end
+')
+
+if [ -n "$next_output" ]; then
+    swaymsg move workspace to output "$next_output"
+fi
