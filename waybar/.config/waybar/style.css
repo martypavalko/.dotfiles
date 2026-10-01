@@ -49,7 +49,7 @@ button {
 }
 
 #clock,
-#battery,
+#nattery,
 #cpu,
 #memory,
 #disk,
@@ -129,13 +129,13 @@ button {
   animation-direction: alternate;
 }
 
-#battery.charging {
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: steps(12);
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
+/* #battery.charging { */
+/*   animation-name: blink; */
+/*   animation-duration: 0.5s; */
+/*   animation-timing-function: steps(12); */
+/*   animation-iteration-count: infinite; */
+/*   animation-direction: alternate; */
+/* } */
 
 label:focus {
   background-color: #000000;
@@ -172,9 +172,5 @@ label:focus {
 }
 
 #privacy-item.audio-in {
-  background-color: #1ca000;
-}
-
-#privacy-item.audio-out {
-  background-color: #0069d4;
+  background-color: #cf5700;
 }
