@@ -2,6 +2,16 @@ return {
   "folke/snacks.nvim",
   opts = {
     picker = {
+      config = function(opts)
+        local on_show = opts.on_show
+        opts.on_show = function(picker)
+          vim.cmd.stopinsert()
+          if on_show then
+            on_show(picker)
+          end
+        end
+        return opts
+      end,
       sources = {
         explorer = {
           hidden = true, -- Always show hidden files in the explorer

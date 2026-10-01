@@ -26,20 +26,16 @@ keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up and center" })
 keymap.set("n", "n", "nzzzv", { desc = "Next search result centered" })
 keymap.set("n", "N", "Nzzzv", { desc = "Previous search result centered" })
 
-
 -- Reconfigure buffer picker
 vim.keymap.set("n", "<leader>fb", function()
   Snacks.picker.buffers({
-    on_show = function()
-      vim.cmd.stopinsert()
-    end,
     win = {
       input = {
         keys = {
           ["d"] = { "bufdelete", mode = { "n" } },
-        }
-      }
-    }
+        },
+      },
+    },
   })
 end, { desc = "Buffers" })
 
@@ -49,3 +45,6 @@ end, { desc = "Buffers" })
 
 -- Remap 'exit terminal-mode'
 vim.cmd("tnoremap <Esc><Esc> <C-\\><C-n>")
+
+keymap.set("n", "<leader>D", ":lua Snacks.dashboard()<CR>", { desc = "Go to Dashboard" })
+keymap.set("n", "<leader>gn", "<cmd>Octo notification list<CR>", { desc = "GitHub notifications (Octo)" })
