@@ -46,5 +46,4 @@ end, { desc = "Buffers" })
 -- Remap 'exit terminal-mode'
 vim.cmd("tnoremap <Esc><Esc> <C-\\><C-n>")
 
-keymap.set("n", "<leader>D", ":lua Snacks.dashboard()<CR>", { desc = "Go to Dashboard" })
 keymap.set("n", "<leader>gn", "<cmd>Octo notification list<CR>", { desc = "GitHub notifications (Octo)" })
