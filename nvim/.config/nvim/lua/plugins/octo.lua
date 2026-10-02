@@ -5,10 +5,10 @@ return {
       opts = vim.tbl_deep_extend("force", opts or {}, {
         mappings = {
           issue = {
-            open_in_browser = { lhs = "<C-o>" },
+            open_in_browser = { lhs = "<C-x>" },
           },
           pull_request = {
-            open_in_browser = { lhs = "<C-o>" },
+            open_in_browser = { lhs = "<C-x>" },
           },
         },
       })
