@@ -2,6 +2,17 @@ return {
   {
     "pwntester/octo.nvim",
     config = function(_, opts)
+      opts = vim.tbl_deep_extend("force", opts or {}, {
+        mappings = {
+          issue = {
+            open_in_browser = { lhs = "<C-o>" },
+          },
+          pull_request = {
+            open_in_browser = { lhs = "<C-o>" },
+          },
+        },
+      })
+
       require("octo").setup(opts)
 
       local navigation = require("octo.navigation")
@@ -12,6 +23,8 @@ return {
           if buffer and buffer:isPullRequest() then
             vim.ui.open(buffer:pullRequest().url)
             return
+          elseif buffer and buffer:isIssue() then
+            vim.ui.open(buffer:issue().url)
           end
         end
 

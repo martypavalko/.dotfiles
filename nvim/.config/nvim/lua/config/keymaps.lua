@@ -39,11 +39,17 @@ vim.keymap.set("n", "<leader>fb", function()
   })
 end, { desc = "Buffers" })
 
+-- Search files in the Obsidian vault
+vim.keymap.set("n", "<leader>fo", function()
+  Snacks.picker.files({ cwd = vim.fn.expand("~/Documents/PKM/"), hidden = false })
+end, { desc = "Find vault files" })
+
 -- Remove lazy buffer swap
 -- vim.keymap.del("n", "H")
 -- vim.keymap.del("n", "L")
 
 -- Remap 'exit terminal-mode'
-vim.cmd("tnoremap <Esc><Esc> <C-\\><C-n>")
+vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
+-- Octo.nvim custom keymaps
 keymap.set("n", "<leader>gn", "<cmd>Octo notification list<CR>", { desc = "GitHub notifications (Octo)" })

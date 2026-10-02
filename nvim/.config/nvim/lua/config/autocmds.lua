@@ -14,9 +14,17 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+local function disable_markdown_diagnostics(bufnr)
+  if vim.bo[bufnr].filetype == "markdown" then
+    vim.diagnostic.enable(false, { bufnr = bufnr })
+  end
+end
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown" },
-  callback = function()
+  callback = function(args)
+    disable_markdown_diagnostics(args.buf)
+
     -- Set your preferred line length (80 characters is standard for Markdown)
     vim.opt_local.textwidth = 80
 
@@ -24,3 +32,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.formatoptions:append({ "t", "c" })
   end,
 })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    disable_markdown_diagnostics(args.buf)
+  end,
+})
+
+for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+  disable_markdown_diagnostics(bufnr)
+end
