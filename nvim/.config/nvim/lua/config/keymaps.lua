@@ -28,7 +28,21 @@ keymap.set("n", "N", "Nzzzv", { desc = "Previous search result centered" })
 
 -- Reconfigure buffer picker
 vim.keymap.set("n", "<leader>fb", function()
+  local previous_buf = vim.fn.bufnr("#")
+
   Snacks.picker.buffers({
+    focus = "list",
+    on_show = function(picker)
+      vim.schedule(function()
+        for index = 1, picker.list:count() do
+          local item = picker.list:get(index)
+          if item.buf == previous_buf then
+            picker.list:view(index, nil, true)
+            break
+          end
+        end
+      end)
+    end,
     win = {
       input = {
         keys = {
