@@ -5,5 +5,10 @@ profile {
 }
 
 profile {
+  output "Dell Inc. S2719DGF 6CW0CY2" mode preferred position 2560,1440 scale 1.0
+  output "eDP-1" disable
+}
+
+profile {
     output "eDP-1" mode preferred enable scale 1.0 position 0,0
 }
