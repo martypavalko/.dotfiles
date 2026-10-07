@@ -47,8 +47,13 @@ if command -v kubectx &>/dev/null && command -v kubens &>/dev/null; then
 fi
 
 if command -v kubectl &>/dev/null; then
+  source <(kubectl completion bash)
   alias k=kubectl
   alias kg="kubectl get"
+fi
+
+if command -v stern &>/dev/null; then
+  source <(stern completion bash)
 fi
 
 aws_profile_picker() {
