@@ -49,6 +49,11 @@ vim.keymap.set("n", "<leader>fb", function()
           ["d"] = { "bufdelete", mode = { "n" } },
         },
       },
+      list = {
+        keys = {
+          ["d"] = { "bufdelete", mode = { "n" } },
+        },
+      },
     },
   })
 end, { desc = "Buffers" })

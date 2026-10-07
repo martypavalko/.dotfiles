@@ -1,5 +1,13 @@
 return {
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        terragrunt_ls = {},
+      },
+    },
+  },
+  {
     "stevearc/conform.nvim",
     optional = true,
     opts = function(_, opts)

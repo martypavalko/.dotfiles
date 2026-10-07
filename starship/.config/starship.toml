@@ -434,7 +434,9 @@ symbol = " "
 symbol = " "
 
 [terraform]
+format = '[$symbol$version]($style) '
 symbol = " "
+# commands = [ [ "terraform", "version" ], [ "tofu", "version" ] ]
 
 [vlang]
 symbol = " "

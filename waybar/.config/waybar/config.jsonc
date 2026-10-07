@@ -48,6 +48,10 @@
     "max-length": 50,
     "rewrite": {
       "(.*) — Mozilla Firefox": " $1",
+      "^Microsoft Teams \\(PWA\\) - (.*)(?:Chat|Activity) \\| (?:_ )?(.*) \\| Microsoft Teams$": "󰊻 $1 $2",
+      "^Microsoft Teams \\(PWA\\) - (.*)(Calendar) \\| Microsoft Teams$": "󰊻 $1 $2",
+      "(.*) - Obsidian.*$": "$1",
+      "^Outlook \\(PWA\\) - (.*)": "󰴢 $1",
     },
   },
   "idle_inhibitor": {
