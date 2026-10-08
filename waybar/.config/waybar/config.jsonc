@@ -2,8 +2,14 @@
 {
   "height": 30,
   "spacing": 4,
-  "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-  "modules-center": ["sway/window"],
+  "modules-left": [
+    "sway/workspaces",
+    "sway/mode",
+    "sway/scratchpad",
+    "sway/window",
+  ],
+  // "modules-center": ["sway/window"],
+  "modules-center": ["clock"],
   "modules-right": [
     "custom/nightlight",
     "idle_inhibitor",
@@ -17,7 +23,7 @@
     // "temperature",
     "backlight",
     "battery",
-    "clock",
+    // "clock",
     "tray",
   ],
   "sway/workspaces": {
@@ -67,7 +73,7 @@
   },
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}",
+    "format": "{:%Y-%m-%d %H:%M}",
   },
   "cpu": {
     "format": "{usage}% ",
