@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
     -- Re-enable text and comment auto-formatting for this file type
     vim.opt_local.formatoptions:append({ "t", "c" })
+    vim.opt_local.formatexpr = "" -- Clears LazyVim's handler so native gq works
   end,
 })
 
