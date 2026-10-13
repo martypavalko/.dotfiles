@@ -1,0 +1,129 @@
+[bar.default]
+background_opacity = 0.59999998658895493
+concave_edge_corners = false
+end = [
+    "caffeine",
+    "nightlight",
+    "media",
+    "notifications",
+    "clipboard",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "battery",
+    "tray",
+    "session"
+]
+radius = 5
+start = [ "workspaces" ]
+
+[calendar]
+
+[control_center.calendar]
+show_events_card = false
+
+[location]
+address = "Youngstown, OH"
+
+[lockscreen]
+transition = []
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-3", "lockscreen-login-box@DP-2" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "DP-2"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-3"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "DP-3"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-3".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[shell]
+settings_expand_all_groups = true
+settings_window_translucent = true
+
+[theme]
+builtin = "Noctalia"
+community_palette = "Oxocarbon"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "soft"
+
+[wallpaper]
+directory = "/home/marty/Pictures"
+
+    [wallpaper.default]
+    path = "/home/marty/Pictures/great_grey_wolf.png"
+
+    [wallpaper.last]
+    path = "/home/marty/Pictures/great_grey_wolf.png"
+
+[widget.clock]
+format = "{:%x %H:%M}"
+
+[widget.control-center]
+enabled = false
+
+[widget.launcher]
+enabled = false
+
+[widget.tray]
+capsule = true
+
+[widget.wallpaper]
+enabled = false
