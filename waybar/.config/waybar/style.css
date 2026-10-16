@@ -1,46 +1,48 @@
 * {
   font-family: "JetBrainsMono Nerd Font Mono", monospace;
   font-size: 14px;
+  border: none;
+  min-height: 0;
 }
 
 window#waybar {
-  background-color: rgba(43, 48, 59, 0.5);
-  border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-  color: #ffffff;
-  transition-property: background-color;
-  transition-duration: 0.5s;
+  background: transparent;
+  color: white;
 }
 
 window#waybar.hidden {
   opacity: 0.2;
 }
 
-button {
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each button name */
-  border: none;
-  border-radius: 0;
+#workspaces button.urgent {
+  background-color: #f7768e;
 }
 
+#workspaces {
+  background-color: #24283b;
+  margin: 5px;
+  margin-left: 10px;
+  /* border-radius: 5px; */
+}
 #workspaces button {
   padding: 0 5px;
   background-color: transparent;
   color: #ffffff;
+  padding: 5px 10px;
+  color: #c0caf5;
+}
+
+#workspaces button.focused {
+  color: #24283b;
+  background-color: #7aa2f7;
+  /* border-radius: 5px; */
 }
 
 #workspaces button:hover {
   background: rgba(0, 0, 0, 0.2);
-}
-
-#workspaces button.focused,
-#workspaces button.active {
-  background-color: #64727d;
-  box-shadow: inset 0 -3px #ffffff;
-}
-
-#workspaces button.urgent {
-  background-color: #eb4d4b;
+  background-color: #7dcfff;
+  color: #24283b;
+  /* border-radius: 5px; */
 }
 
 #mode {
@@ -49,7 +51,7 @@ button {
 }
 
 #clock,
-#nattery,
+#battery,
 #cpu,
 #memory,
 #disk,
@@ -64,8 +66,14 @@ button {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-  padding: 0 10px;
+  /* background-color: #24283b; */
   color: #ffffff;
+  /* border-radius: 5px; */
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 0px;
+  padding: 5px 10px;
 }
 
 #clock:hover,
@@ -81,6 +89,8 @@ button {
 #idle_inhibitor:hover,
 #scratchpad:hover {
   background: rgba(0, 0, 0, 0.2);
+  /* background-color: #7dcfff; */
+  background-color: #24283b;
 }
 
 #idle_inhibitor {
@@ -120,22 +130,15 @@ button {
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: #f53c3c;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: steps(12);
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  background-color: #f7768e;
+  color: #24283b;
+  /* border-radius: 5px 5px 5px 5px; */
 }
-
-/* #battery.charging { */
-/*   animation-name: blink; */
-/*   animation-duration: 0.5s; */
-/*   animation-timing-function: steps(12); */
-/*   animation-iteration-count: infinite; */
-/*   animation-direction: alternate; */
-/* } */
 
 label:focus {
   background-color: #000000;
@@ -147,7 +150,7 @@ label:focus {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
+  background-color: #f7768e;
 }
 
 #scratchpad {
@@ -168,9 +171,9 @@ label:focus {
 }
 
 #privacy-item.screenshare {
-  background-color: #cf5700;
+  background-color: #ff9e64;
 }
 
 #privacy-item.audio-in {
-  background-color: #cf5700;
+  background-color: #ff9e64;
 }

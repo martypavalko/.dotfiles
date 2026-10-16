@@ -9,10 +9,9 @@
     "sway/window",
   ],
   // "modules-center": ["sway/window"],
-  "modules-center": ["clock"],
+  "modules-center": ["clock", "idle_inhibitor"],
   "modules-right": [
-    "custom/nightlight",
-    "idle_inhibitor",
+    "mpris",
     "privacy",
     "pulseaudio",
     "network#wifi",
@@ -70,6 +69,19 @@
     //   "blueman": "bluetooth",
     //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
     // }
+  },
+  "mpris": {
+    "format": "{player_icon} {artist} - {title}",
+    "format-paused": "<em>{status_icon} {artist} - {title}</em>",
+    "player-icons": {
+      "default": "▶",
+      "spotify": "",
+      "firefox": "",
+    },
+    "status-icons": {
+      "paused": "⏸",
+    },
+    "max-length": 40,
   },
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
